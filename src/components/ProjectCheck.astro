@@ -1,0 +1,319 @@
+<div
+  id="project-check"
+  class="w-full max-w-xl rounded-3xl border border-slate-200 bg-white p-7 shadow-[0_20px_70px_rgba(15,45,55,0.10)] sm:p-9"
+>
+  <div>
+    <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
+      CLARISENDA Project Check
+    </p>
+
+    <h2 class="mt-3 text-2xl font-semibold tracking-tight text-[#102f38]">
+      ¿Cuánto te cuesta hoy gestionar la información de tus proyectos?
+    </h2>
+
+    <p class="mt-4 leading-7 text-slate-600">
+      Introduce unos datos básicos. El cálculo se realiza directamente
+      en tu navegador y verás el resultado al instante.
+    </p>
+  </div>
+
+  <form id="project-check-form" class="mt-7 space-y-5">
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      <label class="block">
+        <span class="text-sm font-medium text-slate-700">
+          Entregables al mes
+        </span>
+
+        <input
+          id="deliverables"
+          type="number"
+          min="1"
+          value="10"
+          required
+          class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
+        />
+      </label>
+
+      <label class="block">
+        <span class="text-sm font-medium text-slate-700">
+          Personas implicadas
+        </span>
+
+        <input
+          id="people"
+          type="number"
+          min="1"
+          value="2"
+          required
+          class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
+        />
+      </label>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      <label class="block">
+        <span class="text-sm font-medium text-slate-700">
+          Horas por persona y entregable
+        </span>
+
+        <input
+          id="hours"
+          type="number"
+          min="0.5"
+          step="0.5"
+          value="6"
+          required
+          class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
+        />
+      </label>
+
+      <label class="block">
+        <span class="text-sm font-medium text-slate-700">
+          Coste laboral por hora
+        </span>
+
+        <div class="relative mt-2">
+          <input
+            id="hourly-cost"
+            type="number"
+            min="1"
+            step="1"
+            value="35"
+            required
+            class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 pr-10 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
+          />
+
+          <span class="absolute right-4 top-3 text-slate-400">€</span>
+        </div>
+      </label>
+    </div>
+
+    <label class="block">
+      <div class="flex items-center justify-between gap-5">
+        <span class="text-sm font-medium text-slate-700">
+          Trabajo repetitivo o administrativo
+        </span>
+
+        <strong id="repetitive-value" class="text-[#2d7d73]">
+          50 %
+        </strong>
+      </div>
+
+      <input
+        id="repetitive"
+        type="range"
+        min="10"
+        max="90"
+        step="5"
+        value="50"
+        class="mt-3 w-full accent-[#2d7d73]"
+      />
+    </label>
+
+    <button
+      type="submit"
+      class="w-full rounded-xl bg-[#2d7d73] px-6 py-4 font-semibold text-white transition hover:bg-[#256a62]"
+    >
+      Calcular
+    </button>
+
+  </form>
+
+
+  <div id="results" class="mt-7 hidden border-t border-slate-200 pt-7">
+
+    <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#2d7d73]">
+      Estimación mensual
+    </p>
+
+    <div class="mt-4 grid grid-cols-2 gap-3">
+
+      <div class="rounded-xl bg-[#f7f8f5] p-4">
+        <p class="text-xs font-medium text-slate-500">
+          Coste actual
+        </p>
+
+        <p
+          id="current-cost"
+          class="mt-2 text-2xl font-semibold text-[#123b45]"
+        >
+          —
+        </p>
+      </div>
+
+      <div class="rounded-xl bg-[#f7f8f5] p-4">
+        <p class="text-xs font-medium text-slate-500">
+          Horas repetitivas
+        </p>
+
+        <p
+          id="repetitive-hours"
+          class="mt-2 text-2xl font-semibold text-[#123b45]"
+        >
+          —
+        </p>
+      </div>
+
+      <div class="rounded-xl bg-[#eaf4f1] p-4">
+        <p class="text-xs font-medium text-slate-500">
+          Horas recuperables
+        </p>
+
+        <p
+          id="recoverable-hours"
+          class="mt-2 text-2xl font-semibold text-[#2d7d73]"
+        >
+          —
+        </p>
+      </div>
+
+      <div class="rounded-xl bg-[#eaf4f1] p-4">
+        <p class="text-xs font-medium text-slate-500">
+          Valor recuperable
+        </p>
+
+        <p
+          id="recoverable-value"
+          class="mt-2 text-2xl font-semibold text-[#2d7d73]"
+        >
+          —
+        </p>
+      </div>
+
+    </div>
+
+    <div class="mt-4 rounded-xl border border-slate-200 p-4">
+      <p class="text-sm leading-6 text-slate-600">
+        Escenario esperado: CLARISENDA podría reducir aproximadamente
+        <strong>el 60 % del trabajo repetitivo identificado</strong>.
+        El resultado es una estimación preliminar, no una garantía de ahorro.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+  const form = document.querySelector<HTMLFormElement>(
+    '#project-check-form'
+  );
+
+  const repetitive = document.querySelector<HTMLInputElement>(
+    '#repetitive'
+  );
+
+  const repetitiveValue = document.querySelector<HTMLElement>(
+    '#repetitive-value'
+  );
+
+  repetitive?.addEventListener('input', () => {
+    if (repetitiveValue) {
+      repetitiveValue.textContent = `${repetitive.value} %`;
+    }
+  });
+
+  const euro = new Intl.NumberFormat('es-ES', {
+    style: 'currency',
+    currency: 'EUR',
+    maximumFractionDigits: 0,
+  });
+
+  const number = new Intl.NumberFormat('es-ES', {
+    maximumFractionDigits: 1,
+  });
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const deliverables =
+      Number(
+        document.querySelector<HTMLInputElement>('#deliverables')?.value
+      ) || 0;
+
+    const people =
+      Number(
+        document.querySelector<HTMLInputElement>('#people')?.value
+      ) || 0;
+
+    const hours =
+      Number(
+        document.querySelector<HTMLInputElement>('#hours')?.value
+      ) || 0;
+
+    const hourlyCost =
+      Number(
+        document.querySelector<HTMLInputElement>('#hourly-cost')?.value
+      ) || 0;
+
+    const repetitivePercent =
+      Number(repetitive?.value) / 100;
+
+    /*
+      Horas mensuales totales empleadas en los entregables.
+    */
+    const totalHours =
+      deliverables * people * hours;
+
+    /*
+      Coste económico actual.
+    */
+    const currentCost =
+      totalHours * hourlyCost;
+
+    /*
+      Horas que corresponden al trabajo declarado como
+      repetitivo o administrativo.
+    */
+    const repetitiveHours =
+      totalHours * repetitivePercent;
+
+    /*
+      Escenario esperado inicial:
+      recuperación del 60 % del trabajo repetitivo.
+    */
+    const expectedRecoveryRate = 0.60;
+
+    const recoverableHours =
+      repetitiveHours * expectedRecoveryRate;
+
+    const recoverableValue =
+      recoverableHours * hourlyCost;
+
+    const currentCostElement =
+      document.querySelector<HTMLElement>('#current-cost');
+
+    const repetitiveHoursElement =
+      document.querySelector<HTMLElement>('#repetitive-hours');
+
+    const recoverableHoursElement =
+      document.querySelector<HTMLElement>('#recoverable-hours');
+
+    const recoverableValueElement =
+      document.querySelector<HTMLElement>('#recoverable-value');
+
+    if (currentCostElement) {
+      currentCostElement.textContent = euro.format(currentCost);
+    }
+
+    if (repetitiveHoursElement) {
+      repetitiveHoursElement.textContent =
+        `${number.format(repetitiveHours)} h`;
+    }
+
+    if (recoverableHoursElement) {
+      recoverableHoursElement.textContent =
+        `${number.format(recoverableHours)} h`;
+    }
+
+    if (recoverableValueElement) {
+      recoverableValueElement.textContent =
+        euro.format(recoverableValue);
+    }
+
+    document
+      .querySelector('#results')
+      ?.classList.remove('hidden');
+  });
+</script>
