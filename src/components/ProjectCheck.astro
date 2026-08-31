@@ -12,14 +12,18 @@
     </h2>
 
     <p class="mt-4 leading-7 text-slate-600">
-      Introduce unos datos básicos. El cálculo se realiza directamente
-      en tu navegador y verás el resultado al instante.
+      Introduce unos datos básicos. Obtendrás una estimación del coste actual,
+      potencial de eficiencia, inversión orientativa y retorno económico.
     </p>
   </div>
 
+
   <form id="project-check-form" class="mt-7 space-y-5">
 
+    <!-- DATOS DEL PROCESO -->
+
     <div class="grid gap-4 sm:grid-cols-2">
+
       <label class="block">
         <span class="text-sm font-medium text-slate-700">
           Entregables al mes
@@ -35,6 +39,7 @@
         />
       </label>
 
+
       <label class="block">
         <span class="text-sm font-medium text-slate-700">
           Personas implicadas
@@ -49,9 +54,12 @@
           class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
         />
       </label>
+
     </div>
 
+
     <div class="grid gap-4 sm:grid-cols-2">
+
       <label class="block">
         <span class="text-sm font-medium text-slate-700">
           Horas por persona y entregable
@@ -67,6 +75,7 @@
           class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
         />
       </label>
+
 
       <label class="block">
         <span class="text-sm font-medium text-slate-700">
@@ -84,13 +93,19 @@
             class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 pr-10 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
           />
 
-          <span class="absolute right-4 top-3 text-slate-400">€</span>
+          <span class="absolute right-4 top-3 text-slate-400">
+            €
+          </span>
         </div>
       </label>
+
     </div>
 
+
     <label class="block">
+
       <div class="flex items-center justify-between gap-5">
+
         <span class="text-sm font-medium text-slate-700">
           Trabajo repetitivo o administrativo
         </span>
@@ -98,6 +113,7 @@
         <strong id="repetitive-value" class="text-[#2d7d73]">
           50 %
         </strong>
+
       </div>
 
       <input
@@ -109,194 +125,517 @@
         value="50"
         class="mt-3 w-full accent-[#2d7d73]"
       />
+
     </label>
+
+
+    <!-- COMPLEJIDAD -->
+
+    <div class="border-t border-slate-200 pt-6">
+
+      <p class="font-semibold text-[#102f38]">
+        Complejidad del entorno
+      </p>
+
+      <p class="mt-1 text-sm leading-6 text-slate-500">
+        Esto nos permite estimar qué nivel de implantación necesitaría tu caso.
+      </p>
+
+
+      <div class="mt-5 grid gap-4 sm:grid-cols-2">
+
+        <label class="block">
+
+          <span class="text-sm font-medium text-slate-700">
+            Fuentes de información
+          </span>
+
+          <select
+            id="sources"
+            class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
+          >
+            <option value="0">1–3 fuentes</option>
+            <option value="1">4–8 fuentes</option>
+            <option value="2">Más de 8</option>
+          </select>
+
+        </label>
+
+
+        <label class="block">
+
+          <span class="text-sm font-medium text-slate-700">
+            Estandarización actual
+          </span>
+
+          <select
+            id="standardization"
+            class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
+          >
+            <option value="0">Alta</option>
+            <option value="1" selected>Media</option>
+            <option value="2">Baja</option>
+          </select>
+
+        </label>
+
+
+        <label class="block">
+
+          <span class="text-sm font-medium text-slate-700">
+            Integraciones necesarias
+          </span>
+
+          <select
+            id="integrations"
+            class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
+          >
+            <option value="0">Ninguna</option>
+            <option value="1">1–2 integraciones</option>
+            <option value="2">3 o más</option>
+          </select>
+
+        </label>
+
+
+        <label class="block">
+
+          <span class="text-sm font-medium text-slate-700">
+            Usuarios de CLARISENDA
+          </span>
+
+          <select
+            id="users"
+            class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
+          >
+            <option value="0">1–3 usuarios</option>
+            <option value="1">4–10 usuarios</option>
+            <option value="2">Más de 10</option>
+          </select>
+
+        </label>
+
+      </div>
+
+    </div>
+
 
     <button
       type="submit"
       class="w-full rounded-xl bg-[#2d7d73] px-6 py-4 font-semibold text-white transition hover:bg-[#256a62]"
     >
-      Calcular
+      Calcular rentabilidad
     </button>
 
   </form>
 
 
-  <div id="results" class="mt-7 hidden border-t border-slate-200 pt-7">
+  <!-- RESULTADOS -->
 
-  <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#2d7d73]">
-    Diagnóstico mensual
-  </p>
+  <div id="results" class="mt-8 hidden border-t border-slate-200 pt-7">
 
-  <div class="mt-4 grid grid-cols-2 gap-3">
-    <div class="rounded-xl bg-[#f7f8f5] p-4">
-      <p class="text-xs font-medium text-slate-500">
-        Coste actual
-      </p>
-
-      <p
-        id="current-cost"
-        class="mt-2 text-2xl font-semibold text-[#123b45]"
-      >
-        —
-      </p>
-    </div>
-
-    <div class="rounded-xl bg-[#f7f8f5] p-4">
-      <p class="text-xs font-medium text-slate-500">
-        Trabajo repetitivo
-      </p>
-
-      <p
-        id="repetitive-hours"
-        class="mt-2 text-2xl font-semibold text-[#123b45]"
-      >
-        —
-      </p>
-    </div>
-  </div>
-
-
-  <div class="mt-7">
-    <p class="text-sm font-semibold text-[#102f38]">
-      Potencial de recuperación
+    <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#2d7d73]">
+      Diagnóstico mensual
     </p>
 
-    <p class="mt-1 text-sm leading-6 text-slate-500">
-      Tres escenarios orientativos según el grado de automatización
-      alcanzable en el proceso analizado.
-    </p>
 
-    <div class="mt-4 grid gap-3 md:grid-cols-3">
+    <div class="mt-4 grid grid-cols-2 gap-3">
 
-      <!-- Conservador -->
-      <div class="rounded-2xl border border-slate-200 p-4">
-        <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-          Conservador
-        </p>
+      <div class="rounded-xl bg-[#f7f8f5] p-4">
 
-        <p class="mt-3 text-sm text-slate-500">
-          Recuperación
-        </p>
-
-        <p class="text-xl font-semibold text-[#123b45]">
-          35 %
+        <p class="text-xs font-medium text-slate-500">
+          Coste actual
         </p>
 
         <p
-          id="conservative-hours"
-          class="mt-4 text-lg font-semibold text-[#123b45]"
+          id="current-cost"
+          class="mt-2 text-2xl font-semibold text-[#123b45]"
         >
           —
         </p>
 
-        <p
-          id="conservative-value"
-          class="mt-1 text-sm text-slate-500"
-        >
-          —
-        </p>
       </div>
 
 
-      <!-- Esperado -->
-      <div class="rounded-2xl border-2 border-[#2d7d73] bg-[#eaf4f1] p-4 shadow-sm">
-        <div class="flex items-center justify-between gap-2">
-          <p class="text-xs font-semibold uppercase tracking-[0.12em] text-[#2d7d73]">
-            Esperado
+      <div class="rounded-xl bg-[#f7f8f5] p-4">
+
+        <p class="text-xs font-medium text-slate-500">
+          Trabajo repetitivo
+        </p>
+
+        <p
+          id="repetitive-hours"
+          class="mt-2 text-2xl font-semibold text-[#123b45]"
+        >
+          —
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- ESCENARIOS -->
+
+    <div class="mt-7">
+
+      <p class="text-sm font-semibold text-[#102f38]">
+        Potencial de recuperación
+      </p>
+
+      <p class="mt-1 text-sm leading-6 text-slate-500">
+        Tres escenarios orientativos según el grado de automatización alcanzable.
+      </p>
+
+
+      <div class="mt-4 grid gap-3 md:grid-cols-3">
+
+        <div class="rounded-2xl border border-slate-200 p-4">
+
+          <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+            Conservador
           </p>
 
-          <span class="rounded-full bg-white px-2 py-1 text-[10px] font-semibold text-[#2d7d73]">
-            Referencia
-          </span>
+          <p class="mt-3 text-sm text-slate-500">
+            Recuperación
+          </p>
+
+          <p class="text-xl font-semibold text-[#123b45]">
+            35 %
+          </p>
+
+          <p
+            id="conservative-hours"
+            class="mt-4 text-lg font-semibold text-[#123b45]"
+          >
+            —
+          </p>
+
+          <p
+            id="conservative-value"
+            class="mt-1 text-sm text-slate-500"
+          >
+            —
+          </p>
+
         </div>
 
-        <p class="mt-3 text-sm text-slate-500">
-          Recuperación
-        </p>
 
-        <p class="text-xl font-semibold text-[#2d7d73]">
-          60 %
-        </p>
+        <div class="rounded-2xl border-2 border-[#2d7d73] bg-[#eaf4f1] p-4 shadow-sm">
 
-        <p
-          id="expected-hours"
-          class="mt-4 text-lg font-semibold text-[#2d7d73]"
-        >
-          —
-        </p>
+          <div class="flex items-center justify-between gap-2">
 
-        <p
-          id="expected-value"
-          class="mt-1 text-sm font-medium text-[#2d7d73]"
-        >
-          —
-        </p>
-      </div>
+            <p class="text-xs font-semibold uppercase tracking-[0.12em] text-[#2d7d73]">
+              Esperado
+            </p>
+
+            <span class="rounded-full bg-white px-2 py-1 text-[10px] font-semibold text-[#2d7d73]">
+              Referencia
+            </span>
+
+          </div>
+
+          <p class="mt-3 text-sm text-slate-500">
+            Recuperación
+          </p>
+
+          <p class="text-xl font-semibold text-[#2d7d73]">
+            60 %
+          </p>
+
+          <p
+            id="expected-hours"
+            class="mt-4 text-lg font-semibold text-[#2d7d73]"
+          >
+            —
+          </p>
+
+          <p
+            id="expected-value"
+            class="mt-1 text-sm font-medium text-[#2d7d73]"
+          >
+            —
+          </p>
+
+        </div>
 
 
-      <!-- Alto potencial -->
-      <div class="rounded-2xl border border-slate-200 p-4">
-        <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-          Alto potencial
-        </p>
+        <div class="rounded-2xl border border-slate-200 p-4">
 
-        <p class="mt-3 text-sm text-slate-500">
-          Recuperación
-        </p>
+          <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+            Alto potencial
+          </p>
 
-        <p class="text-xl font-semibold text-[#123b45]">
-          80 %
-        </p>
+          <p class="mt-3 text-sm text-slate-500">
+            Recuperación
+          </p>
 
-        <p
-          id="high-hours"
-          class="mt-4 text-lg font-semibold text-[#123b45]"
-        >
-          —
-        </p>
+          <p class="text-xl font-semibold text-[#123b45]">
+            80 %
+          </p>
 
-        <p
-          id="high-value"
-          class="mt-1 text-sm text-slate-500"
-        >
-          —
-        </p>
+          <p
+            id="high-hours"
+            class="mt-4 text-lg font-semibold text-[#123b45]"
+          >
+            —
+          </p>
+
+          <p
+            id="high-value"
+            class="mt-1 text-sm text-slate-500"
+          >
+            —
+          </p>
+
+        </div>
+
       </div>
 
     </div>
+
+
+    <!-- INVERSIÓN -->
+
+    <div class="mt-8 border-t border-slate-200 pt-7">
+
+      <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#2d7d73]">
+        Estimación CLARISENDA
+      </p>
+
+
+      <div class="mt-4 rounded-2xl bg-[#102f38] p-5 text-white">
+
+        <div class="grid gap-5 sm:grid-cols-2">
+
+          <div>
+
+            <p class="text-xs uppercase tracking-[0.12em] text-white/60">
+              Complejidad estimada
+            </p>
+
+            <p
+              id="complexity"
+              class="mt-1 text-xl font-semibold"
+            >
+              —
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <p class="text-xs uppercase tracking-[0.12em] text-white/60">
+              Solución sugerida
+            </p>
+
+            <p
+              id="solution"
+              class="mt-1 text-xl font-semibold"
+            >
+              —
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="mt-4 grid grid-cols-2 gap-3">
+
+        <div class="rounded-xl bg-[#f7f8f5] p-4">
+
+          <p class="text-xs text-slate-500">
+            Implantación
+          </p>
+
+          <p
+            id="setup-price"
+            class="mt-2 text-xl font-semibold text-[#123b45]"
+          >
+            —
+          </p>
+
+        </div>
+
+
+        <div class="rounded-xl bg-[#f7f8f5] p-4">
+
+          <p class="text-xs text-slate-500">
+            Servicio mensual
+          </p>
+
+          <p
+            id="monthly-price"
+            class="mt-2 text-xl font-semibold text-[#123b45]"
+          >
+            —
+          </p>
+
+        </div>
+
+
+        <div class="rounded-xl bg-[#f7f8f5] p-4">
+
+          <p class="text-xs text-slate-500">
+            Inversión primer año
+          </p>
+
+          <p
+            id="year-one-investment"
+            class="mt-2 text-xl font-semibold text-[#123b45]"
+          >
+            —
+          </p>
+
+        </div>
+
+
+        <div class="rounded-xl bg-[#eaf4f1] p-4">
+
+          <p class="text-xs text-slate-500">
+            Potencial recuperable anual
+          </p>
+
+          <p
+            id="annual-value"
+            class="mt-2 text-xl font-semibold text-[#2d7d73]"
+          >
+            —
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- RENTABILIDAD POSITIVA -->
+
+    <div
+      id="positive-business-case"
+      class="mt-5 hidden rounded-2xl border border-[#2d7d73]/30 bg-[#eaf4f1] p-5"
+    >
+
+      <p class="text-sm font-semibold text-[#2d7d73]">
+        Potencial económico positivo
+      </p>
+
+      <div class="mt-4 grid grid-cols-3 gap-3">
+
+        <div>
+
+          <p class="text-xs text-slate-500">
+            ROI 1er año
+          </p>
+
+          <p
+            id="roi"
+            class="mt-1 text-xl font-semibold text-[#123b45]"
+          >
+            —
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <p class="text-xs text-slate-500">
+            Payback
+          </p>
+
+          <p
+            id="payback"
+            class="mt-1 text-xl font-semibold text-[#123b45]"
+          >
+            —
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <p class="text-xs text-slate-500">
+            Beneficio neto
+          </p>
+
+          <p
+            id="net-benefit"
+            class="mt-1 text-xl font-semibold text-[#123b45]"
+          >
+            —
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- RENTABILIDAD NEGATIVA -->
+
+    <div
+      id="negative-business-case"
+      class="mt-5 hidden rounded-2xl border border-amber-300 bg-amber-50 p-5"
+    >
+
+      <p class="font-semibold text-amber-900">
+        Este caso requiere revisión
+      </p>
+
+      <p class="mt-2 text-sm leading-6 text-amber-800">
+        Con los datos introducidos, el escenario esperado no genera
+        un retorno económico positivo durante el primer año.
+        Eso no significa que el proyecto no sea viable, pero sería
+        necesario revisar alcance, proceso o nivel de automatización
+        antes de recomendar una implantación.
+      </p>
+
+    </div>
+
+
+    <div class="mt-5 rounded-xl border border-slate-200 bg-white p-4">
+
+      <p class="text-sm leading-6 text-slate-600">
+        Project Check ofrece una estimación preliminar. Los porcentajes
+        de recuperación, precios e impacto económico no constituyen una
+        oferta vinculante ni una garantía de ahorro. El resultado definitivo
+        depende del análisis del proceso real.
+      </p>
+
+    </div>
+
   </div>
-
-
-  <div class="mt-5 rounded-xl border border-slate-200 bg-white p-4">
-    <p class="text-sm leading-6 text-slate-600">
-      Estos valores representan potencial de eficiencia, no ahorro
-      garantizado. El resultado definitivo dependerá de la estructura,
-      calidad y nivel de estandarización de cada proceso.
-    </p>
-  </div>
-
-</div>
 </div>
 
 
 <script>
-  const form = document.querySelector<HTMLFormElement>(
-    '#project-check-form'
-  );
 
-  const repetitive = document.querySelector<HTMLInputElement>(
-    '#repetitive'
-  );
+  const form =
+    document.querySelector<HTMLFormElement>('#project-check-form');
 
-  const repetitiveValue = document.querySelector<HTMLElement>(
-    '#repetitive-value'
-  );
+  const repetitive =
+    document.querySelector<HTMLInputElement>('#repetitive');
+
+  const repetitiveValue =
+    document.querySelector<HTMLElement>('#repetitive-value');
+
 
   repetitive?.addEventListener('input', () => {
+
     if (repetitiveValue) {
       repetitiveValue.textContent = `${repetitive.value} %`;
     }
+
   });
+
 
   const euro = new Intl.NumberFormat('es-ES', {
     style: 'currency',
@@ -304,160 +643,507 @@
     maximumFractionDigits: 0,
   });
 
+
   const number = new Intl.NumberFormat('es-ES', {
     maximumFractionDigits: 1,
   });
 
+
   form?.addEventListener('submit', (event) => {
+
     event.preventDefault();
+
+
+    /*
+      DATOS DEL PROCESO
+    */
 
     const deliverables =
       Number(
-        document.querySelector<HTMLInputElement>('#deliverables')?.value
+        document.querySelector<HTMLInputElement>(
+          '#deliverables'
+        )?.value
       ) || 0;
+
 
     const people =
       Number(
-        document.querySelector<HTMLInputElement>('#people')?.value
+        document.querySelector<HTMLInputElement>(
+          '#people'
+        )?.value
       ) || 0;
+
 
     const hours =
       Number(
-        document.querySelector<HTMLInputElement>('#hours')?.value
+        document.querySelector<HTMLInputElement>(
+          '#hours'
+        )?.value
       ) || 0;
+
 
     const hourlyCost =
       Number(
-        document.querySelector<HTMLInputElement>('#hourly-cost')?.value
+        document.querySelector<HTMLInputElement>(
+          '#hourly-cost'
+        )?.value
       ) || 0;
+
 
     const repetitivePercent =
       Number(repetitive?.value) / 100;
 
+
     /*
-      Horas mensuales totales empleadas en los entregables.
+      COSTE ACTUAL
     */
+
     const totalHours =
-      deliverables * people * hours;
+      deliverables *
+      people *
+      hours;
 
-    /*
-      Coste económico actual.
-    */
+
     const currentCost =
-      totalHours * hourlyCost;
+      totalHours *
+      hourlyCost;
 
-    /*
-      Horas que corresponden al trabajo declarado como
-      repetitivo o administrativo.
-    */
+
     const repetitiveHours =
-      totalHours * repetitivePercent;
+      totalHours *
+      repetitivePercent;
+
 
     /*
-  Escenarios de recuperación sobre las horas
-  identificadas como repetitivas.
-*/
-const conservativeRate = 0.35;
-const expectedRate = 0.60;
-const highRate = 0.80;
+      ESCENARIOS DE RECUPERACIÓN
+    */
 
-const conservativeHours =
-  repetitiveHours * conservativeRate;
-
-const expectedHours =
-  repetitiveHours * expectedRate;
-
-const highHours =
-  repetitiveHours * highRate;
-
-const conservativeValue =
-  conservativeHours * hourlyCost;
-
-const expectedValue =
-  expectedHours * hourlyCost;
-
-const highValue =
-  highHours * hourlyCost;
+    const conservativeRate = 0.35;
+    const expectedRate = 0.60;
+    const highRate = 0.80;
 
 
-/* Elementos generales */
-
-const currentCostElement =
-  document.querySelector<HTMLElement>('#current-cost');
-
-const repetitiveHoursElement =
-  document.querySelector<HTMLElement>('#repetitive-hours');
+    const conservativeHours =
+      repetitiveHours *
+      conservativeRate;
 
 
-/* Escenario conservador */
-
-const conservativeHoursElement =
-  document.querySelector<HTMLElement>('#conservative-hours');
-
-const conservativeValueElement =
-  document.querySelector<HTMLElement>('#conservative-value');
+    const expectedHours =
+      repetitiveHours *
+      expectedRate;
 
 
-/* Escenario esperado */
-
-const expectedHoursElement =
-  document.querySelector<HTMLElement>('#expected-hours');
-
-const expectedValueElement =
-  document.querySelector<HTMLElement>('#expected-value');
+    const highHours =
+      repetitiveHours *
+      highRate;
 
 
-/* Escenario alto potencial */
-
-const highHoursElement =
-  document.querySelector<HTMLElement>('#high-hours');
-
-const highValueElement =
-  document.querySelector<HTMLElement>('#high-value');
+    const conservativeValue =
+      conservativeHours *
+      hourlyCost;
 
 
-if (currentCostElement) {
-  currentCostElement.textContent =
-    euro.format(currentCost);
-}
+    const expectedValue =
+      expectedHours *
+      hourlyCost;
 
-if (repetitiveHoursElement) {
-  repetitiveHoursElement.textContent =
-    `${number.format(repetitiveHours)} h`;
-}
 
-if (conservativeHoursElement) {
-  conservativeHoursElement.textContent =
-    `${number.format(conservativeHours)} h`;
-}
+    const highValue =
+      highHours *
+      hourlyCost;
 
-if (conservativeValueElement) {
-  conservativeValueElement.textContent =
-    `${euro.format(conservativeValue)} / mes`;
-}
 
-if (expectedHoursElement) {
-  expectedHoursElement.textContent =
-    `${number.format(expectedHours)} h`;
-}
+    /*
+      COMPLEJIDAD
+    */
 
-if (expectedValueElement) {
-  expectedValueElement.textContent =
-    `${euro.format(expectedValue)} / mes`;
-}
+    const sources =
+      Number(
+        document.querySelector<HTMLSelectElement>(
+          '#sources'
+        )?.value
+      ) || 0;
 
-if (highHoursElement) {
-  highHoursElement.textContent =
-    `${number.format(highHours)} h`;
-}
 
-if (highValueElement) {
-  highValueElement.textContent =
-    `${euro.format(highValue)} / mes`;
-}
+    const standardization =
+      Number(
+        document.querySelector<HTMLSelectElement>(
+          '#standardization'
+        )?.value
+      ) || 0;
+
+
+    const integrations =
+      Number(
+        document.querySelector<HTMLSelectElement>(
+          '#integrations'
+        )?.value
+      ) || 0;
+
+
+    const users =
+      Number(
+        document.querySelector<HTMLSelectElement>(
+          '#users'
+        )?.value
+      ) || 0;
+
+
+    const complexityScore =
+      sources +
+      standardization +
+      integrations +
+      users;
+
+
+    let complexity = '';
+    let solution = '';
+    let setupPrice = 0;
+    let monthlyPrice = 0;
+
+
+    /*
+      PRICING ENGINE v0.1
+    */
+
+    if (complexityScore <= 2) {
+
+      complexity = 'Baja';
+      solution = 'Project Evidence';
+      setupPrice = 1490;
+      monthlyPrice = 290;
+
+    } else if (complexityScore <= 5) {
+
+      complexity = 'Media';
+      solution = 'Project Evidence + Audit Ready';
+      setupPrice = 2900;
+      monthlyPrice = 590;
+
+    } else {
+
+      complexity = 'Alta';
+      solution = 'Project Control';
+      setupPrice = 4900;
+      monthlyPrice = 990;
+
+    }
+
+
+    /*
+      BUSINESS CASE
+    */
+
+    const yearOneInvestment =
+      setupPrice +
+      monthlyPrice * 12;
+
+
+    const annualRecoverableValue =
+      expectedValue * 12;
+
+
+    const netBenefit =
+      annualRecoverableValue -
+      yearOneInvestment;
+
+
+    const roi =
+      yearOneInvestment > 0
+        ? (netBenefit / yearOneInvestment) * 100
+        : 0;
+
+
+    const monthlyNetValue =
+      expectedValue -
+      monthlyPrice;
+
+
+    const payback =
+      monthlyNetValue > 0
+        ? setupPrice / monthlyNetValue
+        : null;
+
+
+    /*
+      ACTUALIZAR DIAGNÓSTICO
+    */
+
+    const currentCostElement =
+      document.querySelector<HTMLElement>(
+        '#current-cost'
+      );
+
+
+    const repetitiveHoursElement =
+      document.querySelector<HTMLElement>(
+        '#repetitive-hours'
+      );
+
+
+    if (currentCostElement) {
+      currentCostElement.textContent =
+        euro.format(currentCost);
+    }
+
+
+    if (repetitiveHoursElement) {
+      repetitiveHoursElement.textContent =
+        `${number.format(repetitiveHours)} h`;
+    }
+
+
+    /*
+      ESCENARIO CONSERVADOR
+    */
+
+    const conservativeHoursElement =
+      document.querySelector<HTMLElement>(
+        '#conservative-hours'
+      );
+
+
+    const conservativeValueElement =
+      document.querySelector<HTMLElement>(
+        '#conservative-value'
+      );
+
+
+    if (conservativeHoursElement) {
+
+      conservativeHoursElement.textContent =
+        `${number.format(conservativeHours)} h`;
+
+    }
+
+
+    if (conservativeValueElement) {
+
+      conservativeValueElement.textContent =
+        `${euro.format(conservativeValue)} / mes`;
+
+    }
+
+
+    /*
+      ESCENARIO ESPERADO
+    */
+
+    const expectedHoursElement =
+      document.querySelector<HTMLElement>(
+        '#expected-hours'
+      );
+
+
+    const expectedValueElement =
+      document.querySelector<HTMLElement>(
+        '#expected-value'
+      );
+
+
+    if (expectedHoursElement) {
+
+      expectedHoursElement.textContent =
+        `${number.format(expectedHours)} h`;
+
+    }
+
+
+    if (expectedValueElement) {
+
+      expectedValueElement.textContent =
+        `${euro.format(expectedValue)} / mes`;
+
+    }
+
+
+    /*
+      ESCENARIO ALTO
+    */
+
+    const highHoursElement =
+      document.querySelector<HTMLElement>(
+        '#high-hours'
+      );
+
+
+    const highValueElement =
+      document.querySelector<HTMLElement>(
+        '#high-value'
+      );
+
+
+    if (highHoursElement) {
+
+      highHoursElement.textContent =
+        `${number.format(highHours)} h`;
+
+    }
+
+
+    if (highValueElement) {
+
+      highValueElement.textContent =
+        `${euro.format(highValue)} / mes`;
+
+    }
+
+
+    /*
+      RESULTADO COMERCIAL
+    */
+
+    const complexityElement =
+      document.querySelector<HTMLElement>(
+        '#complexity'
+      );
+
+
+    const solutionElement =
+      document.querySelector<HTMLElement>(
+        '#solution'
+      );
+
+
+    const setupPriceElement =
+      document.querySelector<HTMLElement>(
+        '#setup-price'
+      );
+
+
+    const monthlyPriceElement =
+      document.querySelector<HTMLElement>(
+        '#monthly-price'
+      );
+
+
+    const yearOneInvestmentElement =
+      document.querySelector<HTMLElement>(
+        '#year-one-investment'
+      );
+
+
+    const annualValueElement =
+      document.querySelector<HTMLElement>(
+        '#annual-value'
+      );
+
+
+    if (complexityElement) {
+      complexityElement.textContent =
+        complexity;
+    }
+
+
+    if (solutionElement) {
+      solutionElement.textContent =
+        solution;
+    }
+
+
+    if (setupPriceElement) {
+      setupPriceElement.textContent =
+        euro.format(setupPrice);
+    }
+
+
+    if (monthlyPriceElement) {
+      monthlyPriceElement.textContent =
+        `${euro.format(monthlyPrice)} / mes`;
+    }
+
+
+    if (yearOneInvestmentElement) {
+      yearOneInvestmentElement.textContent =
+        euro.format(yearOneInvestment);
+    }
+
+
+    if (annualValueElement) {
+      annualValueElement.textContent =
+        euro.format(annualRecoverableValue);
+    }
+
+
+    /*
+      RENTABILIDAD
+    */
+
+    const positivePanel =
+      document.querySelector<HTMLElement>(
+        '#positive-business-case'
+      );
+
+
+    const negativePanel =
+      document.querySelector<HTMLElement>(
+        '#negative-business-case'
+      );
+
+
+    if (netBenefit > 0 && payback !== null) {
+
+      positivePanel?.classList.remove('hidden');
+      negativePanel?.classList.add('hidden');
+
+
+      const roiElement =
+        document.querySelector<HTMLElement>(
+          '#roi'
+        );
+
+
+      const paybackElement =
+        document.querySelector<HTMLElement>(
+          '#payback'
+        );
+
+
+      const netBenefitElement =
+        document.querySelector<HTMLElement>(
+          '#net-benefit'
+        );
+
+
+      if (roiElement) {
+
+        roiElement.textContent =
+          `${Math.round(roi)} %`;
+
+      }
+
+
+      if (paybackElement) {
+
+        paybackElement.textContent =
+          `${number.format(payback)} meses`;
+
+      }
+
+
+      if (netBenefitElement) {
+
+        netBenefitElement.textContent =
+          euro.format(netBenefit);
+
+      }
+
+    } else {
+
+      positivePanel?.classList.add('hidden');
+      negativePanel?.classList.remove('hidden');
+
+    }
+
+
+    /*
+      MOSTRAR RESULTADOS
+    */
 
     document
       .querySelector('#results')
       ?.classList.remove('hidden');
+
   });
+
 </script>
