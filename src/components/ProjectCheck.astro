@@ -123,75 +123,159 @@
 
   <div id="results" class="mt-7 hidden border-t border-slate-200 pt-7">
 
-    <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#2d7d73]">
-      Estimación mensual
-    </p>
+  <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#2d7d73]">
+    Diagnóstico mensual
+  </p>
 
-    <div class="mt-4 grid grid-cols-2 gap-3">
+  <div class="mt-4 grid grid-cols-2 gap-3">
+    <div class="rounded-xl bg-[#f7f8f5] p-4">
+      <p class="text-xs font-medium text-slate-500">
+        Coste actual
+      </p>
 
-      <div class="rounded-xl bg-[#f7f8f5] p-4">
-        <p class="text-xs font-medium text-slate-500">
-          Coste actual
-        </p>
-
-        <p
-          id="current-cost"
-          class="mt-2 text-2xl font-semibold text-[#123b45]"
-        >
-          —
-        </p>
-      </div>
-
-      <div class="rounded-xl bg-[#f7f8f5] p-4">
-        <p class="text-xs font-medium text-slate-500">
-          Horas repetitivas
-        </p>
-
-        <p
-          id="repetitive-hours"
-          class="mt-2 text-2xl font-semibold text-[#123b45]"
-        >
-          —
-        </p>
-      </div>
-
-      <div class="rounded-xl bg-[#eaf4f1] p-4">
-        <p class="text-xs font-medium text-slate-500">
-          Horas recuperables
-        </p>
-
-        <p
-          id="recoverable-hours"
-          class="mt-2 text-2xl font-semibold text-[#2d7d73]"
-        >
-          —
-        </p>
-      </div>
-
-      <div class="rounded-xl bg-[#eaf4f1] p-4">
-        <p class="text-xs font-medium text-slate-500">
-          Valor recuperable
-        </p>
-
-        <p
-          id="recoverable-value"
-          class="mt-2 text-2xl font-semibold text-[#2d7d73]"
-        >
-          —
-        </p>
-      </div>
-
-    </div>
-
-    <div class="mt-4 rounded-xl border border-slate-200 p-4">
-      <p class="text-sm leading-6 text-slate-600">
-        Escenario esperado: CLARISENDA podría reducir aproximadamente
-        <strong>el 60 % del trabajo repetitivo identificado</strong>.
-        El resultado es una estimación preliminar, no una garantía de ahorro.
+      <p
+        id="current-cost"
+        class="mt-2 text-2xl font-semibold text-[#123b45]"
+      >
+        —
       </p>
     </div>
 
+    <div class="rounded-xl bg-[#f7f8f5] p-4">
+      <p class="text-xs font-medium text-slate-500">
+        Trabajo repetitivo
+      </p>
+
+      <p
+        id="repetitive-hours"
+        class="mt-2 text-2xl font-semibold text-[#123b45]"
+      >
+        —
+      </p>
+    </div>
   </div>
+
+
+  <div class="mt-7">
+    <p class="text-sm font-semibold text-[#102f38]">
+      Potencial de recuperación
+    </p>
+
+    <p class="mt-1 text-sm leading-6 text-slate-500">
+      Tres escenarios orientativos según el grado de automatización
+      alcanzable en el proceso analizado.
+    </p>
+
+    <div class="mt-4 grid gap-3 md:grid-cols-3">
+
+      <!-- Conservador -->
+      <div class="rounded-2xl border border-slate-200 p-4">
+        <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+          Conservador
+        </p>
+
+        <p class="mt-3 text-sm text-slate-500">
+          Recuperación
+        </p>
+
+        <p class="text-xl font-semibold text-[#123b45]">
+          35 %
+        </p>
+
+        <p
+          id="conservative-hours"
+          class="mt-4 text-lg font-semibold text-[#123b45]"
+        >
+          —
+        </p>
+
+        <p
+          id="conservative-value"
+          class="mt-1 text-sm text-slate-500"
+        >
+          —
+        </p>
+      </div>
+
+
+      <!-- Esperado -->
+      <div class="rounded-2xl border-2 border-[#2d7d73] bg-[#eaf4f1] p-4 shadow-sm">
+        <div class="flex items-center justify-between gap-2">
+          <p class="text-xs font-semibold uppercase tracking-[0.12em] text-[#2d7d73]">
+            Esperado
+          </p>
+
+          <span class="rounded-full bg-white px-2 py-1 text-[10px] font-semibold text-[#2d7d73]">
+            Referencia
+          </span>
+        </div>
+
+        <p class="mt-3 text-sm text-slate-500">
+          Recuperación
+        </p>
+
+        <p class="text-xl font-semibold text-[#2d7d73]">
+          60 %
+        </p>
+
+        <p
+          id="expected-hours"
+          class="mt-4 text-lg font-semibold text-[#2d7d73]"
+        >
+          —
+        </p>
+
+        <p
+          id="expected-value"
+          class="mt-1 text-sm font-medium text-[#2d7d73]"
+        >
+          —
+        </p>
+      </div>
+
+
+      <!-- Alto potencial -->
+      <div class="rounded-2xl border border-slate-200 p-4">
+        <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+          Alto potencial
+        </p>
+
+        <p class="mt-3 text-sm text-slate-500">
+          Recuperación
+        </p>
+
+        <p class="text-xl font-semibold text-[#123b45]">
+          80 %
+        </p>
+
+        <p
+          id="high-hours"
+          class="mt-4 text-lg font-semibold text-[#123b45]"
+        >
+          —
+        </p>
+
+        <p
+          id="high-value"
+          class="mt-1 text-sm text-slate-500"
+        >
+          —
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="mt-5 rounded-xl border border-slate-200 bg-white p-4">
+    <p class="text-sm leading-6 text-slate-600">
+      Estos valores representan potencial de eficiencia, no ahorro
+      garantizado. El resultado definitivo dependerá de la estructura,
+      calidad y nivel de estandarización de cada proceso.
+    </p>
+  </div>
+
+</div>
 </div>
 
 
@@ -270,47 +354,107 @@
       totalHours * repetitivePercent;
 
     /*
-      Escenario esperado inicial:
-      recuperación del 60 % del trabajo repetitivo.
-    */
-    const expectedRecoveryRate = 0.60;
+  Escenarios de recuperación sobre las horas
+  identificadas como repetitivas.
+*/
+const conservativeRate = 0.35;
+const expectedRate = 0.60;
+const highRate = 0.80;
 
-    const recoverableHours =
-      repetitiveHours * expectedRecoveryRate;
+const conservativeHours =
+  repetitiveHours * conservativeRate;
 
-    const recoverableValue =
-      recoverableHours * hourlyCost;
+const expectedHours =
+  repetitiveHours * expectedRate;
 
-    const currentCostElement =
-      document.querySelector<HTMLElement>('#current-cost');
+const highHours =
+  repetitiveHours * highRate;
 
-    const repetitiveHoursElement =
-      document.querySelector<HTMLElement>('#repetitive-hours');
+const conservativeValue =
+  conservativeHours * hourlyCost;
 
-    const recoverableHoursElement =
-      document.querySelector<HTMLElement>('#recoverable-hours');
+const expectedValue =
+  expectedHours * hourlyCost;
 
-    const recoverableValueElement =
-      document.querySelector<HTMLElement>('#recoverable-value');
+const highValue =
+  highHours * hourlyCost;
 
-    if (currentCostElement) {
-      currentCostElement.textContent = euro.format(currentCost);
-    }
 
-    if (repetitiveHoursElement) {
-      repetitiveHoursElement.textContent =
-        `${number.format(repetitiveHours)} h`;
-    }
+/* Elementos generales */
 
-    if (recoverableHoursElement) {
-      recoverableHoursElement.textContent =
-        `${number.format(recoverableHours)} h`;
-    }
+const currentCostElement =
+  document.querySelector<HTMLElement>('#current-cost');
 
-    if (recoverableValueElement) {
-      recoverableValueElement.textContent =
-        euro.format(recoverableValue);
-    }
+const repetitiveHoursElement =
+  document.querySelector<HTMLElement>('#repetitive-hours');
+
+
+/* Escenario conservador */
+
+const conservativeHoursElement =
+  document.querySelector<HTMLElement>('#conservative-hours');
+
+const conservativeValueElement =
+  document.querySelector<HTMLElement>('#conservative-value');
+
+
+/* Escenario esperado */
+
+const expectedHoursElement =
+  document.querySelector<HTMLElement>('#expected-hours');
+
+const expectedValueElement =
+  document.querySelector<HTMLElement>('#expected-value');
+
+
+/* Escenario alto potencial */
+
+const highHoursElement =
+  document.querySelector<HTMLElement>('#high-hours');
+
+const highValueElement =
+  document.querySelector<HTMLElement>('#high-value');
+
+
+if (currentCostElement) {
+  currentCostElement.textContent =
+    euro.format(currentCost);
+}
+
+if (repetitiveHoursElement) {
+  repetitiveHoursElement.textContent =
+    `${number.format(repetitiveHours)} h`;
+}
+
+if (conservativeHoursElement) {
+  conservativeHoursElement.textContent =
+    `${number.format(conservativeHours)} h`;
+}
+
+if (conservativeValueElement) {
+  conservativeValueElement.textContent =
+    `${euro.format(conservativeValue)} / mes`;
+}
+
+if (expectedHoursElement) {
+  expectedHoursElement.textContent =
+    `${number.format(expectedHours)} h`;
+}
+
+if (expectedValueElement) {
+  expectedValueElement.textContent =
+    `${euro.format(expectedValue)} / mes`;
+}
+
+if (highHoursElement) {
+  highHoursElement.textContent =
+    `${number.format(highHours)} h`;
+}
+
+if (highValueElement) {
+  highValueElement.textContent =
+    `${euro.format(highValue)} / mes`;
+}
 
     document
       .querySelector('#results')
