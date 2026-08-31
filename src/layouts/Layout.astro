@@ -1,27 +1,108 @@
-
 ---
 import '../styles/global.css';
 
 interface Props {
+  lang?: 'es' | 'en';
   title?: string;
   description?: string;
+  canonicalPath?: string;
 }
 
 const {
+  lang = 'es',
   title = 'CLARISENDA',
   description = 'Cada dato. Su evidencia.',
+  canonicalPath = lang === 'en' ? '/en/' : '/es/',
 } = Astro.props;
+
+const siteUrl = 'https://clarisenda.com';
+
+const canonicalUrl = new URL(canonicalPath, siteUrl);
+const spanishUrl = new URL('/es/', siteUrl);
+const englishUrl = new URL('/en/', siteUrl);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
-    <meta name="description" content={description} />
+
+    <meta
+      name="description"
+      content={description}
+    />
+
+    <!-- Canonical -->
+    <link
+      rel="canonical"
+      href={canonicalUrl}
+    />
+
+    <!-- Idiomas -->
+    <link
+      rel="alternate"
+      hreflang="es"
+      href={spanishUrl}
+    />
+
+    <link
+      rel="alternate"
+      hreflang="en"
+      href={englishUrl}
+    />
+
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={spanishUrl}
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:type"
+      content="website"
+    />
+
+    <meta
+      property="og:title"
+      content={title}
+    />
+
+    <meta
+      property="og:description"
+      content={description}
+    />
+
+    <meta
+      property="og:url"
+      content={canonicalUrl}
+    />
+
+    <meta
+      property="og:site_name"
+      content="CLARISENDA"
+    />
+
+    <meta
+      property="og:locale"
+      content={lang === 'es' ? 'es_ES' : 'en_US'}
+    />
+
+    <!-- Favicons -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+
+    <link
+      rel="icon"
+      href="/favicon.ico"
+    />
   </head>
 
   <body>
