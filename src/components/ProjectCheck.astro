@@ -1,233 +1,443 @@
+---
+interface Props {
+  lang?: 'es' | 'en';
+}
+
+const {
+  lang = 'es',
+} = Astro.props;
+
+const isSpanish = lang === 'es';
+
+const t = isSpanish
+  ? {
+      label: 'CLARISENDA Project Check',
+      title: '¿Cuánto te cuesta hoy gestionar la información de tus proyectos?',
+      intro:
+        'Introduce unos datos básicos. Obtendrás una estimación del coste actual, potencial de eficiencia, inversión orientativa y retorno económico.',
+
+      deliverables: 'Entregables al mes',
+      people: 'Personas implicadas',
+      hours: 'Horas por persona y entregable',
+      hourlyCost: 'Coste laboral por hora',
+      repetitive: 'Trabajo repetitivo o administrativo',
+
+      complexityTitle: 'Complejidad del entorno',
+      complexityIntro:
+        'Esto nos permite estimar qué nivel de implantación necesitaría tu caso.',
+
+      sources: 'Fuentes de información',
+      sourcesLow: '1–3 fuentes',
+      sourcesMedium: '4–8 fuentes',
+      sourcesHigh: 'Más de 8',
+
+      standardization: 'Estandarización actual',
+      standardizationHigh: 'Alta',
+      standardizationMedium: 'Media',
+      standardizationLow: 'Baja',
+
+      integrations: 'Integraciones necesarias',
+      integrationsNone: 'Ninguna',
+      integrationsMedium: '1–2 integraciones',
+      integrationsHigh: '3 o más',
+
+      users: 'Usuarios de CLARISENDA',
+      usersLow: '1–3 usuarios',
+      usersMedium: '4–10 usuarios',
+      usersHigh: 'Más de 10',
+
+      calculate: 'Calcular rentabilidad',
+
+      diagnosis: 'Diagnóstico mensual',
+currentCost: 'Coste actual',
+repetitiveWork: 'Trabajo repetitivo',
+
+recoveryPotential: 'Potencial de recuperación',
+recoveryIntro:
+  'Tres escenarios orientativos según el grado de automatización alcanzable.',
+
+conservative: 'Conservador',
+expected: 'Esperado',
+reference: 'Referencia',
+highPotential: 'Alto potencial',
+recovery: 'Recuperación',
+
+estimate: 'Estimación CLARISENDA',
+estimatedComplexity: 'Complejidad estimada',
+suggestedSolution: 'Solución sugerida',
+
+setup: 'Implantación',
+monthlyService: 'Servicio mensual',
+firstYearInvestment: 'Inversión primer año',
+annualRecoverable: 'Potencial recuperable anual',
+
+positiveTitle: 'Potencial económico positivo',
+roiLabel: 'ROI 1er año',
+paybackLabel: 'Payback',
+netBenefitLabel: 'Beneficio neto',
+
+reviewTitle: 'Este caso requiere revisión',
+reviewText:
+  'Con los datos introducidos, el escenario esperado no genera un retorno económico positivo durante el primer año. Eso no significa que el proyecto no sea viable, pero sería necesario revisar alcance, proceso o nivel de automatización antes de recomendar una implantación.',
+
+opportunityLabel: 'Tu oportunidad estimada',
+analysisButton: 'Solicitar análisis detallado',
+modifyButton: 'Modificar datos',
+commercialNote:
+  'Sin compromiso. Revisaremos los datos antes de recomendar una implantación.',
+
+disclaimer:
+  'Project Check ofrece una estimación preliminar. Los porcentajes de recuperación, precios e impacto económico no constituyen una oferta vinculante ni una garantía de ahorro. El resultado definitivo depende del análisis del proceso real.',
+    }
+  : {
+      label: 'CLARISENDA Project Check',
+      title: 'How much does managing your project information cost today?',
+      intro:
+        'Enter a few basic details to estimate your current cost, efficiency potential, indicative investment and expected return.',
+
+      deliverables: 'Deliverables per month',
+      people: 'People involved',
+      hours: 'Hours per person and deliverable',
+      hourlyCost: 'Labour cost per hour',
+      repetitive: 'Repetitive or administrative work',
+
+      complexityTitle: 'Environment complexity',
+      complexityIntro:
+        'This helps us estimate the implementation level your case may require.',
+
+      sources: 'Information sources',
+      sourcesLow: '1–3 sources',
+      sourcesMedium: '4–8 sources',
+      sourcesHigh: 'More than 8',
+
+      standardization: 'Current standardisation',
+      standardizationHigh: 'High',
+      standardizationMedium: 'Medium',
+      standardizationLow: 'Low',
+
+      integrations: 'Required integrations',
+      integrationsNone: 'None',
+      integrationsMedium: '1–2 integrations',
+      integrationsHigh: '3 or more',
+
+      users: 'CLARISENDA users',
+      usersLow: '1–3 users',
+      usersMedium: '4–10 users',
+      usersHigh: 'More than 10',
+
+      calculate: 'Calculate ROI',
+
+      diagnosis: 'Monthly assessment',
+currentCost: 'Current cost',
+repetitiveWork: 'Repetitive work',
+
+recoveryPotential: 'Recovery potential',
+recoveryIntro:
+  'Three indicative scenarios based on the achievable level of automation.',
+
+conservative: 'Conservative',
+expected: 'Expected',
+reference: 'Reference',
+highPotential: 'High potential',
+recovery: 'Recovery',
+
+estimate: 'CLARISENDA estimate',
+estimatedComplexity: 'Estimated complexity',
+suggestedSolution: 'Suggested solution',
+
+setup: 'Implementation',
+monthlyService: 'Monthly service',
+firstYearInvestment: 'First-year investment',
+annualRecoverable: 'Annual recoverable potential',
+
+positiveTitle: 'Positive economic potential',
+roiLabel: 'First-year ROI',
+paybackLabel: 'Payback',
+netBenefitLabel: 'Net benefit',
+
+reviewTitle: 'This case requires further review',
+reviewText:
+  'Based on the information provided, the expected scenario does not generate a positive return during the first year. This does not necessarily mean that the project is unviable, but its scope, process or level of automation should be reviewed before recommending an implementation.',
+
+opportunityLabel: 'Your estimated opportunity',
+analysisButton: 'Request detailed analysis',
+modifyButton: 'Edit data',
+commercialNote:
+  'No commitment. We will review the information before recommending an implementation.',
+
+disclaimer:
+  'Project Check provides a preliminary estimate. Recovery rates, prices and economic impact do not constitute a binding offer or a guarantee of savings. Final results depend on an analysis of the actual process.',
+
+    };
+---
+
 <div
   id="project-check"
+  data-lang={lang}
   class="w-full max-w-xl rounded-3xl border border-slate-200 bg-white p-7 shadow-[0_20px_70px_rgba(15,45,55,0.10)] sm:p-9"
 >
   <div>
     <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
-      CLARISENDA Project Check
+      {t.label}
     </p>
 
     <h2 class="mt-3 text-2xl font-semibold tracking-tight text-[#102f38]">
-      ¿Cuánto te cuesta hoy gestionar la información de tus proyectos?
+      {t.title}
     </h2>
 
     <p class="mt-4 leading-7 text-slate-600">
-      Introduce unos datos básicos. Obtendrás una estimación del coste actual,
-      potencial de eficiencia, inversión orientativa y retorno económico.
+      {t.intro}
     </p>
   </div>
 
 
   <form id="project-check-form" class="mt-7 space-y-5">
 
-    <!-- DATOS DEL PROCESO -->
+  <!-- DATOS DEL PROCESO -->
 
-    <div class="grid gap-4 sm:grid-cols-2">
-
-      <label class="block">
-        <span class="text-sm font-medium text-slate-700">
-          Entregables al mes
-        </span>
-
-        <input
-          id="deliverables"
-          type="number"
-          min="1"
-          value="10"
-          required
-          class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
-        />
-      </label>
-
-
-      <label class="block">
-        <span class="text-sm font-medium text-slate-700">
-          Personas implicadas
-        </span>
-
-        <input
-          id="people"
-          type="number"
-          min="1"
-          value="2"
-          required
-          class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
-        />
-      </label>
-
-    </div>
-
-
-    <div class="grid gap-4 sm:grid-cols-2">
-
-      <label class="block">
-        <span class="text-sm font-medium text-slate-700">
-          Horas por persona y entregable
-        </span>
-
-        <input
-          id="hours"
-          type="number"
-          min="0.5"
-          step="0.5"
-          value="6"
-          required
-          class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
-        />
-      </label>
-
-
-      <label class="block">
-        <span class="text-sm font-medium text-slate-700">
-          Coste laboral por hora
-        </span>
-
-        <div class="relative mt-2">
-          <input
-            id="hourly-cost"
-            type="number"
-            min="1"
-            step="1"
-            value="35"
-            required
-            class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 pr-10 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
-          />
-
-          <span class="absolute right-4 top-3 text-slate-400">
-            €
-          </span>
-        </div>
-      </label>
-
-    </div>
-
+  <div class="grid gap-4 sm:grid-cols-2">
 
     <label class="block">
-
-      <div class="flex items-center justify-between gap-5">
-
-        <span class="text-sm font-medium text-slate-700">
-          Trabajo repetitivo o administrativo
-        </span>
-
-        <strong id="repetitive-value" class="text-[#2d7d73]">
-          50 %
-        </strong>
-
-      </div>
+      <span class="text-sm font-medium text-slate-700">
+        {t.deliverables}
+      </span>
 
       <input
-        id="repetitive"
-        type="range"
-        min="10"
-        max="90"
-        step="5"
-        value="50"
-        class="mt-3 w-full accent-[#2d7d73]"
+        id="deliverables"
+        type="number"
+        min="1"
+        value="10"
+        required
+        class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
       />
-
     </label>
 
 
-    <!-- COMPLEJIDAD -->
+    <label class="block">
+      <span class="text-sm font-medium text-slate-700">
+        {t.people}
+      </span>
 
-    <div class="border-t border-slate-200 pt-6">
+      <input
+        id="people"
+        type="number"
+        min="1"
+        value="2"
+        required
+        class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
+      />
+    </label>
 
-      <p class="font-semibold text-[#102f38]">
-        Complejidad del entorno
-      </p>
-
-      <p class="mt-1 text-sm leading-6 text-slate-500">
-        Esto nos permite estimar qué nivel de implantación necesitaría tu caso.
-      </p>
-
-
-      <div class="mt-5 grid gap-4 sm:grid-cols-2">
-
-        <label class="block">
-
-          <span class="text-sm font-medium text-slate-700">
-            Fuentes de información
-          </span>
-
-          <select
-            id="sources"
-            class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
-          >
-            <option value="0">1–3 fuentes</option>
-            <option value="1">4–8 fuentes</option>
-            <option value="2">Más de 8</option>
-          </select>
-
-        </label>
+  </div>
 
 
-        <label class="block">
+  <div class="grid gap-4 sm:grid-cols-2">
 
-          <span class="text-sm font-medium text-slate-700">
-            Estandarización actual
-          </span>
+    <label class="block">
+      <span class="text-sm font-medium text-slate-700">
+        {t.hours}
+      </span>
 
-          <select
-            id="standardization"
-            class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
-          >
-            <option value="0">Alta</option>
-            <option value="1" selected>Media</option>
-            <option value="2">Baja</option>
-          </select>
-
-        </label>
-
-
-        <label class="block">
-
-          <span class="text-sm font-medium text-slate-700">
-            Integraciones necesarias
-          </span>
-
-          <select
-            id="integrations"
-            class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
-          >
-            <option value="0">Ninguna</option>
-            <option value="1">1–2 integraciones</option>
-            <option value="2">3 o más</option>
-          </select>
-
-        </label>
+      <input
+        id="hours"
+        type="number"
+        min="0.5"
+        step="0.5"
+        value="6"
+        required
+        class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
+      />
+    </label>
 
 
-        <label class="block">
+    <label class="block">
+      <span class="text-sm font-medium text-slate-700">
+        {t.hourlyCost}
+      </span>
 
-          <span class="text-sm font-medium text-slate-700">
-            Usuarios de CLARISENDA
-          </span>
+      <div class="relative mt-2">
 
-          <select
-            id="users"
-            class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
-          >
-            <option value="0">1–3 usuarios</option>
-            <option value="1">4–10 usuarios</option>
-            <option value="2">Más de 10</option>
-          </select>
+        <input
+          id="hourly-cost"
+          type="number"
+          min="1"
+          step="1"
+          value="35"
+          required
+          class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 pr-10 text-slate-900 outline-none transition focus:border-[#2d7d73] focus:ring-2 focus:ring-[#2d7d73]/15"
+        />
 
-        </label>
+        <span class="absolute right-4 top-3 text-slate-400">
+          €
+        </span>
 
       </div>
+    </label>
+
+  </div>
+
+
+  <label class="block">
+
+    <div class="flex items-center justify-between gap-5">
+
+      <span class="text-sm font-medium text-slate-700">
+        {t.repetitive}
+      </span>
+
+      <strong
+        id="repetitive-value"
+        class="text-[#2d7d73]"
+      >
+        50 %
+      </strong>
 
     </div>
 
+    <input
+      id="repetitive"
+      type="range"
+      min="10"
+      max="90"
+      step="5"
+      value="50"
+      class="mt-3 w-full accent-[#2d7d73]"
+    />
 
-    <button
-      type="submit"
-      class="w-full rounded-xl bg-[#2d7d73] px-6 py-4 font-semibold text-white transition hover:bg-[#256a62]"
-    >
-      Calcular rentabilidad
-    </button>
+  </label>
 
-  </form>
+
+  <!-- COMPLEJIDAD -->
+
+  <div class="border-t border-slate-200 pt-6">
+
+    <p class="font-semibold text-[#102f38]">
+      {t.complexityTitle}
+    </p>
+
+    <p class="mt-1 text-sm leading-6 text-slate-500">
+      {t.complexityIntro}
+    </p>
+
+
+    <div class="mt-5 grid gap-4 sm:grid-cols-2">
+
+      <label class="block">
+
+        <span class="text-sm font-medium text-slate-700">
+          {t.sources}
+        </span>
+
+        <select
+          id="sources"
+          class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
+        >
+          <option value="0">
+            {t.sourcesLow}
+          </option>
+
+          <option value="1">
+            {t.sourcesMedium}
+          </option>
+
+          <option value="2">
+            {t.sourcesHigh}
+          </option>
+        </select>
+
+      </label>
+
+
+      <label class="block">
+
+        <span class="text-sm font-medium text-slate-700">
+          {t.standardization}
+        </span>
+
+        <select
+          id="standardization"
+          class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
+        >
+          <option value="0">
+            {t.standardizationHigh}
+          </option>
+
+          <option value="1" selected>
+            {t.standardizationMedium}
+          </option>
+
+          <option value="2">
+            {t.standardizationLow}
+          </option>
+        </select>
+
+      </label>
+
+
+      <label class="block">
+
+        <span class="text-sm font-medium text-slate-700">
+          {t.integrations}
+        </span>
+
+        <select
+          id="integrations"
+          class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
+        >
+          <option value="0">
+            {t.integrationsNone}
+          </option>
+
+          <option value="1">
+            {t.integrationsMedium}
+          </option>
+
+          <option value="2">
+            {t.integrationsHigh}
+          </option>
+        </select>
+
+      </label>
+
+
+      <label class="block">
+
+        <span class="text-sm font-medium text-slate-700">
+          {t.users}
+        </span>
+
+        <select
+          id="users"
+          class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-[#2d7d73]"
+        >
+          <option value="0">
+            {t.usersLow}
+          </option>
+
+          <option value="1">
+            {t.usersMedium}
+          </option>
+
+          <option value="2">
+            {t.usersHigh}
+          </option>
+        </select>
+
+      </label>
+
+    </div>
+
+  </div>
+
+
+  <button
+    type="submit"
+    class="w-full rounded-xl bg-[#2d7d73] px-6 py-4 font-semibold text-white transition hover:bg-[#256a62]"
+  >
+    {t.calculate}
+  </button>
+
+</form>
 
 
   <!-- RESULTADOS -->
@@ -235,7 +445,7 @@
   <div id="results" class="mt-8 hidden border-t border-slate-200 pt-7">
 
     <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#2d7d73]">
-      Diagnóstico mensual
+      {t.diagnosis}
     </p>
 
 
@@ -244,7 +454,7 @@
       <div class="rounded-xl bg-[#f7f8f5] p-4">
 
         <p class="text-xs font-medium text-slate-500">
-          Coste actual
+          {t.currentCost}
         </p>
 
         <p
@@ -260,7 +470,7 @@
       <div class="rounded-xl bg-[#f7f8f5] p-4">
 
         <p class="text-xs font-medium text-slate-500">
-          Trabajo repetitivo
+          {t.repetitiveWork}
         </p>
 
         <p
@@ -280,11 +490,11 @@
     <div class="mt-7">
 
       <p class="text-sm font-semibold text-[#102f38]">
-        Potencial de recuperación
+        {t.recoveryPotential}
       </p>
 
       <p class="mt-1 text-sm leading-6 text-slate-500">
-        Tres escenarios orientativos según el grado de automatización alcanzable.
+        {t.recoveryIntro}
       </p>
 
 
@@ -293,11 +503,11 @@
         <div class="rounded-2xl border border-slate-200 p-4">
 
           <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-            Conservador
+            {t.conservative}
           </p>
 
           <p class="mt-3 text-sm text-slate-500">
-            Recuperación
+            {t.recovery}
           </p>
 
           <p class="text-xl font-semibold text-[#123b45]">
@@ -326,17 +536,17 @@
           <div class="flex items-center justify-between gap-2">
 
             <p class="text-xs font-semibold uppercase tracking-[0.12em] text-[#2d7d73]">
-              Esperado
+              {t.expected}
             </p>
 
             <span class="rounded-full bg-white px-2 py-1 text-[10px] font-semibold text-[#2d7d73]">
-              Referencia
+              {t.reference}
             </span>
 
           </div>
 
           <p class="mt-3 text-sm text-slate-500">
-            Recuperación
+            {t.recovery}
           </p>
 
           <p class="text-xl font-semibold text-[#2d7d73]">
@@ -363,11 +573,11 @@
         <div class="rounded-2xl border border-slate-200 p-4">
 
           <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-            Alto potencial
+            {t.highPotential}
           </p>
 
           <p class="mt-3 text-sm text-slate-500">
-            Recuperación
+            {t.recovery}
           </p>
 
           <p class="text-xl font-semibold text-[#123b45]">
@@ -400,7 +610,7 @@
     <div class="mt-8 border-t border-slate-200 pt-7">
 
       <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#2d7d73]">
-        Estimación CLARISENDA
+        {t.estimate}
       </p>
 
 
@@ -411,7 +621,7 @@
           <div>
 
             <p class="text-xs uppercase tracking-[0.12em] text-white/60">
-              Complejidad estimada
+              {t.estimatedComplexity}
             </p>
 
             <p
@@ -427,7 +637,7 @@
           <div>
 
             <p class="text-xs uppercase tracking-[0.12em] text-white/60">
-              Solución sugerida
+              {t.suggestedSolution}
             </p>
 
             <p
@@ -449,7 +659,7 @@
         <div class="rounded-xl bg-[#f7f8f5] p-4">
 
           <p class="text-xs text-slate-500">
-            Implantación
+            {t.setup}
           </p>
 
           <p
@@ -465,7 +675,7 @@
         <div class="rounded-xl bg-[#f7f8f5] p-4">
 
           <p class="text-xs text-slate-500">
-            Servicio mensual
+            {t.monthlyService}
           </p>
 
           <p
@@ -481,7 +691,7 @@
         <div class="rounded-xl bg-[#f7f8f5] p-4">
 
           <p class="text-xs text-slate-500">
-            Inversión primer año
+            {t.firstYearInvestment}
           </p>
 
           <p
@@ -497,7 +707,7 @@
         <div class="rounded-xl bg-[#eaf4f1] p-4">
 
           <p class="text-xs text-slate-500">
-            Potencial recuperable anual
+            {t.annualRecoverable}
           </p>
 
           <p
@@ -522,7 +732,7 @@
     >
 
       <p class="text-sm font-semibold text-[#2d7d73]">
-        Potencial económico positivo
+        {t.positiveTitle}
       </p>
 
       <div class="mt-4 grid grid-cols-3 gap-3">
@@ -530,7 +740,7 @@
         <div>
 
           <p class="text-xs text-slate-500">
-            ROI 1er año
+            {t.roiLabel}
           </p>
 
           <p
@@ -546,7 +756,7 @@
         <div>
 
           <p class="text-xs text-slate-500">
-            Payback
+            {t.paybackLabel}
           </p>
 
           <p
@@ -562,7 +772,7 @@
         <div>
 
           <p class="text-xs text-slate-500">
-            Beneficio neto
+            {t.netBenefitLabel}
           </p>
 
           <p
@@ -587,15 +797,11 @@
     >
 
       <p class="font-semibold text-amber-900">
-        Este caso requiere revisión
+        {t.reviewTitle}
       </p>
 
       <p class="mt-2 text-sm leading-6 text-amber-800">
-        Con los datos introducidos, el escenario esperado no genera
-        un retorno económico positivo durante el primer año.
-        Eso no significa que el proyecto no sea viable, pero sería
-        necesario revisar alcance, proceso o nivel de automatización
-        antes de recomendar una implantación.
+        {t.reviewText}
       </p>
 
     </div>
@@ -607,7 +813,7 @@
   class="mt-5 rounded-2xl bg-[#102f38] p-6 text-white"
 >
   <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#79c0b7]">
-    Tu oportunidad estimada
+    {t.opportunityLabel}
   </p>
 
   <h3
@@ -631,7 +837,7 @@
       href="mailto:info@clarisenda.com"
       class="rounded-xl bg-white px-5 py-3 text-center font-semibold text-[#123b45] transition hover:bg-[#eaf4f1]"
     >
-      Solicitar análisis detallado
+      {t.analysisButton}
     </a>
 
     <button
@@ -639,13 +845,13 @@
       type="button"
       class="rounded-xl border border-white/25 px-5 py-3 font-semibold text-white transition hover:bg-white/10"
     >
-      Modificar datos
+      {t.modifyButton}
     </button>
 
   </div>
 
   <p class="mt-4 text-xs leading-5 text-white/50">
-    Sin compromiso. Revisaremos los datos antes de recomendar una implantación.
+    {t.commercialNote}
   </p>
 </div>
 
@@ -653,10 +859,7 @@
     <div class="mt-5 rounded-xl border border-slate-200 bg-white p-4">
 
       <p class="text-sm leading-6 text-slate-600">
-        Project Check ofrece una estimación preliminar. Los porcentajes
-        de recuperación, precios e impacto económico no constituyen una
-        oferta vinculante ni una garantía de ahorro. El resultado definitivo
-        depende del análisis del proceso real.
+        {t.disclaimer}
       </p>
 
     </div>
@@ -686,16 +889,75 @@
   });
 
 
-  const euro = new Intl.NumberFormat('es-ES', {
-    style: 'currency',
-    currency: 'EUR',
-    maximumFractionDigits: 0,
-  });
+  
+  const projectCheck =
+  document.querySelector<HTMLElement>(
+    '#project-check'
+  );
 
 
-  const number = new Intl.NumberFormat('es-ES', {
-    maximumFractionDigits: 1,
-  });
+const currentLang =
+  projectCheck?.dataset.lang === 'en'
+    ? 'en'
+    : 'es';
+
+
+const locale =
+  currentLang === 'en'
+    ? 'en-US'
+    : 'es-ES';
+
+
+const jsText =
+  currentLang === 'en'
+    ? {
+        low: 'Low',
+        medium: 'Medium',
+        high: 'High',
+
+        perMonth: '/ month',
+        hours: 'h',
+        months: 'months',
+
+        analysisButton: 'Request detailed analysis',
+        reviewButton: 'Review my case with CLARISENDA',
+
+        positiveOpportunity:
+          'recoverable potential per year',
+
+        reviewOpportunity:
+          'The scope should be reviewed before implementation',
+      }
+    : {
+        low: 'Baja',
+        medium: 'Media',
+        high: 'Alta',
+
+        perMonth: '/ mes',
+        hours: 'h',
+        months: 'meses',
+
+        analysisButton: 'Solicitar análisis detallado',
+        reviewButton: 'Revisar mi caso con CLARISENDA',
+
+        positiveOpportunity:
+          'de potencial recuperable al año',
+
+        reviewOpportunity:
+          'Conviene revisar el alcance antes de implantar',
+      };
+
+
+const euro = new Intl.NumberFormat(locale, {
+  style: 'currency',
+  currency: 'EUR',
+  maximumFractionDigits: 0,
+});
+
+
+const number = new Intl.NumberFormat(locale, {
+  maximumFractionDigits: 1,
+});
 
 
   form?.addEventListener('submit', (event) => {
@@ -857,21 +1119,21 @@
 
     if (complexityScore <= 2) {
 
-      complexity = 'Baja';
+      complexity = jsText.low;
       solution = 'Project Evidence';
       setupPrice = 1490;
       monthlyPrice = 290;
 
     } else if (complexityScore <= 5) {
 
-      complexity = 'Media';
+      complexity = jsText.medium;
       solution = 'Project Evidence + Audit Ready';
       setupPrice = 2900;
       monthlyPrice = 590;
 
     } else {
 
-      complexity = 'Alta';
+      complexity = jsText.high;
       solution = 'Project Control';
       setupPrice = 4900;
       monthlyPrice = 990;
@@ -969,7 +1231,7 @@
     if (conservativeValueElement) {
 
       conservativeValueElement.textContent =
-        `${euro.format(conservativeValue)} / mes`;
+        `${euro.format(conservativeValue)} ${jsText.perMonth}`;
 
     }
 
@@ -1001,7 +1263,7 @@
     if (expectedValueElement) {
 
       expectedValueElement.textContent =
-        `${euro.format(expectedValue)} / mes`;
+        `${euro.format(expectedValue)} ${jsText.perMonth}`;
 
     }
 
@@ -1033,7 +1295,7 @@
     if (highValueElement) {
 
       highValueElement.textContent =
-        `${euro.format(highValue)} / mes`;
+        `${euro.format(highValue)} ${jsText.perMonth}`;
 
     }
 
@@ -1098,7 +1360,7 @@
 
     if (monthlyPriceElement) {
       monthlyPriceElement.textContent =
-        `${euro.format(monthlyPrice)} / mes`;
+        `${euro.format(monthlyPrice)} ${jsText.perMonth}`;
     }
 
 
@@ -1165,7 +1427,7 @@
       if (paybackElement) {
 
         paybackElement.textContent =
-          `${number.format(payback)} meses`;
+          `${number.format(payback)} ${jsText.months}`;
 
       }
 
@@ -1185,7 +1447,7 @@
     }
 
 
-     /*
+/*
   RESUMEN COMERCIAL PERSONALIZADO
 */
 
@@ -1209,42 +1471,72 @@ if (netBenefit > 0 && payback !== null) {
 
   if (opportunityTitle) {
     opportunityTitle.textContent =
-      `${euro.format(annualRecoverableValue)} de potencial recuperable al año`;
+      `${euro.format(annualRecoverableValue)} ${jsText.positiveOpportunity}`;
   }
 
   if (opportunitySummary) {
-    opportunitySummary.textContent =
-      `Para un entorno de complejidad ${complexity.toLowerCase()}, ` +
-      `CLARISENDA recomienda ${solution}. ` +
-      `La estimación preliminar arroja un ROI del ${Math.round(roi)} % ` +
-      `durante el primer año y una amortización aproximada de ` +
-      `${number.format(payback)} meses.`;
+
+    if (currentLang === 'en') {
+
+      opportunitySummary.textContent =
+        `For an environment with ${complexity.toLowerCase()} complexity, ` +
+        `CLARISENDA recommends ${solution}. ` +
+        `The preliminary estimate indicates a first-year ROI of ` +
+        `${Math.round(roi)}% and an estimated payback period of ` +
+        `${number.format(payback)} ${jsText.months}.`;
+
+    } else {
+
+      opportunitySummary.textContent =
+        `Para un entorno de complejidad ${complexity.toLowerCase()}, ` +
+        `CLARISENDA recomienda ${solution}. ` +
+        `La estimación preliminar arroja un ROI del ${Math.round(roi)} % ` +
+        `durante el primer año y una amortización aproximada de ` +
+        `${number.format(payback)} ${jsText.months}.`;
+
+    }
+
   }
 
   if (analysisCta) {
     analysisCta.textContent =
-      'Solicitar análisis detallado';
+      jsText.analysisButton;
   }
 
 } else {
 
   if (opportunityTitle) {
     opportunityTitle.textContent =
-      'Conviene revisar el alcance antes de implantar';
+      jsText.reviewOpportunity;
   }
 
   if (opportunitySummary) {
-    opportunitySummary.textContent =
-      `El proceso presenta un potencial recuperable estimado de ` +
-      `${euro.format(annualRecoverableValue)} al año, pero la inversión ` +
-      `estimada para una solución de complejidad ${complexity.toLowerCase()} ` +
-      `no obtiene retorno positivo durante el primer año. ` +
-      `Recomendamos analizar el alcance antes de tomar una decisión.`;
+
+    if (currentLang === 'en') {
+
+      opportunitySummary.textContent =
+        `The process has an estimated recoverable potential of ` +
+        `${euro.format(annualRecoverableValue)} per year, but the estimated ` +
+        `investment for a ${complexity.toLowerCase()} complexity solution ` +
+        `does not generate a positive first-year return. ` +
+        `We recommend reviewing the scope before making an implementation decision.`;
+
+    } else {
+
+      opportunitySummary.textContent =
+        `El proceso presenta un potencial recuperable estimado de ` +
+        `${euro.format(annualRecoverableValue)} al año, pero la inversión ` +
+        `estimada para una solución de complejidad ${complexity.toLowerCase()} ` +
+        `no obtiene retorno positivo durante el primer año. ` +
+        `Recomendamos analizar el alcance antes de tomar una decisión.`;
+
+    }
+
   }
 
   if (analysisCta) {
     analysisCta.textContent =
-      'Revisar mi caso con CLARISENDA';
+      jsText.reviewButton;
   }
 
 }
@@ -1256,11 +1548,64 @@ if (netBenefit > 0 && payback !== null) {
 
 if (analysisCta) {
 
-  const subject =
-    `Project Check CLARISENDA - Complejidad ${complexity}`;
+  let subject = '';
+  let body = '';
 
+  if (currentLang === 'en') {
 
-  const body =
+    subject =
+      `CLARISENDA Project Check - ${complexity} complexity`;
+
+    body =
+`Hello CLARISENDA,
+
+I have completed a Project Check and would like to review the result.
+
+ASSESSMENT
+
+Estimated current cost:
+${euro.format(currentCost)} / month
+
+Repetitive work:
+${number.format(repetitiveHours)} hours / month
+
+Expected recoverable potential:
+${euro.format(expectedValue)} / month
+${euro.format(annualRecoverableValue)} / year
+
+Estimated complexity:
+${complexity}
+
+Suggested solution:
+${solution}
+
+Indicative implementation:
+${euro.format(setupPrice)}
+
+Indicative monthly service:
+${euro.format(monthlyPrice)}
+
+Estimated first-year investment:
+${euro.format(yearOneInvestment)}
+
+Estimated first-year ROI:
+${Math.round(roi)}%
+
+Estimated payback:
+${payback !== null
+  ? number.format(payback) + ' months'
+  : 'Requires review'}
+
+I would like to receive a more detailed analysis.
+
+Thank you.`;
+
+  } else {
+
+    subject =
+      `Project Check CLARISENDA - Complejidad ${complexity}`;
+
+    body =
 `Hola CLARISENDA,
 
 He realizado un Project Check y me gustaría analizar el resultado.
@@ -1296,15 +1641,18 @@ ROI estimado primer año:
 ${Math.round(roi)} %
 
 Payback estimado:
-${payback !== null ? number.format(payback) + ' meses' : 'Requiere revisión'}
+${payback !== null
+  ? number.format(payback) + ' meses'
+  : 'Requiere revisión'}
 
 Me gustaría recibir un análisis más detallado.
 
 Gracias.`;
 
+  }
+
   analysisCta.href =
     `mailto:info@clarisenda.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
 }
 
 /*

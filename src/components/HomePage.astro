@@ -31,6 +31,223 @@ const alternateLanguageUrl = isSpanish
 const alternateLanguageLabel = isSpanish
   ? 'EN'
   : 'ES';
+
+
+const t = isSpanish
+  ? {
+      navHow: 'Cómo funciona',
+      navSolutions: 'Soluciones',
+      navSecurity: 'Seguridad',
+      calculateShort: 'Calcular',
+      calculate: 'Calcula tu rentabilidad',
+
+      eyebrow: 'Inteligencia operativa para proyectos profesionales',
+      heroStart: 'Convierte información dispersa en',
+      heroHighlight: 'evidencia útil.',
+      heroText1:
+        'CLARISENDA transforma documentos, datos y conocimiento de proyecto en entregables estructurados, trazables y verificables.',
+      heroText2:
+        'Menos tiempo buscando, copiando y comprobando información. Más tiempo para decidir y aportar valor.',
+      discover: 'Descubre cómo funciona',
+      noCommitment: 'Sin compromiso',
+      instantResult: 'Resultado inmediato',
+      noRegistration: 'Sin registro inicial',
+
+      problemLabel: 'El problema',
+      problemTitle: 'El conocimiento está en tus proyectos.',
+      problemTitleMuted:
+        'El problema es encontrarlo, comprobarlo y reutilizarlo.',
+      problemIntro:
+        'Documentos, hojas de cálculo, correos, informes, evidencias y decisiones terminan repartidos entre distintas fuentes. El resultado es tiempo perdido buscando información, copiando datos y verificando una y otra vez lo mismo.',
+
+      problem1Title: 'Información dispersa',
+      problem1Text:
+        'Datos relevantes repartidos entre documentos, carpetas, herramientas y personas.',
+      problem2Title: 'Trabajo repetitivo',
+      problem2Text:
+        'Buscar, copiar, consolidar, comprobar y volver a preparar información que ya existe.',
+      problem3Title: 'Evidencia difícil de seguir',
+      problem3Text:
+        'Cuesta reconstruir de dónde procede un dato y demostrar qué información respalda una conclusión.',
+
+      howLabel: 'Cómo funciona',
+      howTitle:
+        'De información dispersa a conocimiento operativo verificable.',
+      howIntro:
+        'CLARISENDA estructura el proceso para que cada resultado pueda relacionarse con la información que lo respalda.',
+
+      step1Title: 'Conectamos las fuentes',
+      step1Text:
+        'Identificamos qué información interviene realmente en el proceso y cómo se relaciona.',
+      step2Title: 'Estructuramos y trazamos',
+      step2Text:
+        'Convertimos datos y documentos en información estructurada, vinculando resultados y evidencias.',
+      step3Title: 'Automatizamos lo repetitivo',
+      step3Text:
+        'Reducimos tareas mecánicas de búsqueda, consolidación, comprobación y preparación documental.',
+      step4Title: 'Tú mantienes el control',
+      step4Text:
+        'La automatización ayuda a preparar y verificar información; la decisión profesional sigue estando en tus manos.',
+
+      solutionsLabel: 'Soluciones',
+      solutionsTitle: 'Empieza por el problema que necesitas resolver.',
+      solutionsIntro:
+        'CLARISENDA adapta el nivel de implantación a la complejidad real de cada organización y proceso.',
+
+      evidenceText:
+        'Convierte información dispersa en entregables estructurados, manteniendo la relación entre cada dato y su evidencia.',
+      evidenceFor:
+        'Para procesos documentales y entregables recurrentes →',
+
+      auditBadge: 'Trazabilidad',
+      auditText:
+        'Organiza evidencias, fuentes y verificaciones para que la información pueda revisarse y reconstruirse con mayor facilidad.',
+      auditFor:
+        'Para proyectos que requieren justificación y revisión →',
+
+      controlText:
+        'Lleva la trazabilidad al seguimiento operativo para relacionar información, evidencias, estado y decisiones del proyecto.',
+      controlFor:
+        'Para entornos complejos y múltiples fuentes →',
+
+      trustLabel: 'Confianza por diseño',
+      trustTitle: 'Automatizar no significa perder el control.',
+      trustIntro:
+        'CLARISENDA se plantea para entornos profesionales donde no basta con obtener una respuesta: importa poder entender de dónde procede la información que la sustenta.',
+
+      traceability: 'Trazabilidad',
+      traceabilityText:
+        'Relación entre resultados, fuentes y evidencias.',
+      humanReview: 'Revisión humana',
+      humanReviewText:
+        'La automatización asiste; el criterio profesional decide.',
+      portable: 'Arquitectura portable',
+      portableText:
+        'Tecnología diseñada para evitar dependencias innecesarias.',
+      securityDesign: 'Seguridad desde el diseño',
+      securityDesignText:
+        'El nivel de protección se adapta al contexto y requisitos del proyecto.',
+
+      finalClaim: 'Cada dato. Su evidencia.',
+      finalTitle:
+        'Empieza comprobando si el problema merece ser automatizado.',
+      finalIntro:
+        'Project Check te proporciona una primera estimación económica antes de pedirte que hables con nosotros.',
+      finalButton: 'Calcular mi rentabilidad',
+
+      footerClaim: 'Cada dato. Su evidencia.',
+      location: 'Granada · España · Global',
+    }
+  : {
+      navHow: 'How it works',
+      navSolutions: 'Solutions',
+      navSecurity: 'Security',
+      calculateShort: 'Calculate',
+      calculate: 'Calculate your ROI',
+
+      eyebrow: 'Operational intelligence for professional projects',
+      heroStart: 'Turn fragmented information into',
+      heroHighlight: 'usable evidence.',
+      heroText1:
+        'CLARISENDA turns project documents, data and knowledge into structured, traceable and verifiable deliverables.',
+      heroText2:
+        'Less time searching, copying and checking information. More time to make decisions and create value.',
+      discover: 'See how it works',
+      noCommitment: 'No commitment',
+      instantResult: 'Instant result',
+      noRegistration: 'No registration required',
+
+      problemLabel: 'The problem',
+      problemTitle: 'The knowledge is already in your projects.',
+      problemTitleMuted:
+        'The challenge is finding it, verifying it and reusing it.',
+      problemIntro:
+        'Documents, spreadsheets, emails, reports, evidence and decisions become scattered across multiple sources. The result is time lost searching, copying and repeatedly verifying information.',
+
+      problem1Title: 'Fragmented information',
+      problem1Text:
+        'Relevant data distributed across documents, folders, tools and people.',
+      problem2Title: 'Repetitive work',
+      problem2Text:
+        'Searching, copying, consolidating, checking and rebuilding information that already exists.',
+      problem3Title: 'Hard-to-trace evidence',
+      problem3Text:
+        'It becomes difficult to reconstruct where a data point came from and what evidence supports a conclusion.',
+
+      howLabel: 'How it works',
+      howTitle:
+        'From fragmented information to verifiable operational knowledge.',
+      howIntro:
+        'CLARISENDA structures the process so that every result can be linked back to the information that supports it.',
+
+      step1Title: 'Connect the sources',
+      step1Text:
+        'We identify which information actually matters to the process and how the different sources relate.',
+      step2Title: 'Structure and trace',
+      step2Text:
+        'We turn documents and data into structured information while linking outputs to their supporting evidence.',
+      step3Title: 'Automate repetitive work',
+      step3Text:
+        'We reduce mechanical tasks involving search, consolidation, verification and document preparation.',
+      step4Title: 'You stay in control',
+      step4Text:
+        'Automation helps prepare and verify information; professional judgement remains in your hands.',
+
+      solutionsLabel: 'Solutions',
+      solutionsTitle: 'Start with the problem you need to solve.',
+      solutionsIntro:
+        'CLARISENDA adapts the implementation level to the real complexity of each organisation and process.',
+
+      evidenceText:
+        'Turn fragmented information into structured deliverables while preserving the link between each data point and its evidence.',
+      evidenceFor:
+        'For recurring document processes and deliverables →',
+
+      auditBadge: 'Traceability',
+      auditText:
+        'Organise evidence, sources and verification so information can be reviewed and reconstructed more easily.',
+      auditFor:
+        'For projects requiring justification and review →',
+
+      controlText:
+        'Extend traceability into operational monitoring by connecting information, evidence, status and project decisions.',
+      controlFor:
+        'For complex environments and multiple information sources →',
+
+      trustLabel: 'Trust by design',
+      trustTitle: 'Automation does not mean losing control.',
+      trustIntro:
+        'CLARISENDA is designed for professional environments where getting an answer is not enough: understanding where the supporting information comes from also matters.',
+
+      traceability: 'Traceability',
+      traceabilityText:
+        'Clear links between results, sources and evidence.',
+      humanReview: 'Human review',
+      humanReviewText:
+        'Automation assists; professional judgement decides.',
+      portable: 'Portable architecture',
+      portableText:
+        'Technology designed to avoid unnecessary vendor dependencies.',
+      securityDesign: 'Security by design',
+      securityDesignText:
+        'Protection is adapted to the context and requirements of each project.',
+
+      finalClaim: 'Every data point. Backed by evidence.',
+      finalTitle:
+        'Start by finding out whether the problem is worth automating.',
+      finalIntro:
+        'Project Check gives you an initial economic assessment before asking you to talk to us.',
+      finalButton: 'Calculate my ROI',
+
+      footerClaim: 'Every data point. Backed by evidence.',
+      location: 'Granada · Spain · Global',
+    };
+
+
+
+
+
+
 ---
 
 <Layout
@@ -54,7 +271,7 @@ const alternateLanguageLabel = isSpanish
 
     <nav class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
       <a
-        href="#como-funciona"
+        href="#{t.navHow}"
         class="transition hover:text-[#123b45]"
       >
         {isSpanish ? 'Cómo funciona' : 'How it works'}
@@ -104,67 +321,65 @@ const alternateLanguageLabel = isSpanish
 </header>
 
 
-    <!-- HERO -->
-    <main>
-      <section class="relative overflow-hidden">
-        <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:px-8 lg:py-28">
+<!-- HERO -->
+<main>
+<section class="relative overflow-hidden">
+  <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:px-8 lg:py-28">
 
-          <!-- Mensaje principal -->
-          <div class="flex flex-col justify-center">
+    <!-- Mensaje principal -->
+    <div class="flex flex-col justify-center">
 
-            <div class="mb-6">
-              <span class="inline-flex rounded-full border border-[#6aa69f]/30 bg-[#6aa69f]/10 px-3 py-2 text-xs font-semibold text-[#27665f] sm:px-4 sm:text-sm">
-                Inteligencia operativa para proyectos profesionales
-              </span>
-            </div>
+      <div class="mb-6">
+        <span class="inline-flex rounded-full border border-[#6aa69f]/30 bg-[#6aa69f]/10 px-3 py-2 text-xs font-semibold text-[#27665f] sm:px-4 sm:text-sm">
+          {t.eyebrow}
+        </span>
+      </div>
 
-            <h1 class="max-w-3xl text-[2.65rem] font-semibold leading-[1.06] tracking-tight text-[#102f38] sm:text-5xl lg:text-6xl">
-              Convierte información dispersa en
-              <span class="text-[#2d7d73]">evidencia útil.</span>
-            </h1>
+      <h1 class="max-w-3xl text-[2.65rem] font-semibold leading-[1.06] tracking-tight text-[#102f38] sm:text-5xl lg:text-6xl">
+        {t.heroStart}
+        <span class="text-[#2d7d73]"> {t.heroHighlight}</span>
+      </h1>
 
-            <p class="mt-7 max-w-2xl ext-base leading-7 sm:text-lg sm:leading-8 text-slate-600">
-              CLARISENDA transforma documentos, datos y conocimiento de proyecto
-              en entregables estructurados, trazables y verificables.
-            </p>
+      <p class="mt-7 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+        {t.heroText1}
+      </p>
 
-            <p class="mt-3 max-w-2xl ext-base leading-7 sm:text-lg sm:leading-8 text-slate-600">
-              Menos tiempo buscando, copiando y comprobando información.
-              Más tiempo para decidir y aportar valor.
-            </p>
+      <p class="mt-3 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+        {t.heroText2}
+      </p>
 
-            <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#project-check"
-                class="rounded-lg bg-[#123b45] px-6 py-3.5 text-center font-semibold text-white shadow-sm transition hover:bg-[#0d3038]"
-              >
-                Calcula tu rentabilidad
-              </a>
+      <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+        <a
+          href="#project-check"
+          class="rounded-lg bg-[#123b45] px-6 py-3.5 text-center font-semibold text-white shadow-sm transition hover:bg-[#0d3038]"
+        >
+          {t.calculate}
+        </a>
 
-              <a
-                href="#como-funciona"
-                class="rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-center font-semibold text-slate-700 transition hover:border-slate-400"
-              >
-                Descubre cómo funciona
-              </a>
-            </div>
+        <a
+          href="#como-funciona"
+          class="rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-center font-semibold text-slate-700 transition hover:border-slate-400"
+        >
+          {t.discover}
+        </a>
+      </div>
 
-            <div class="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-slate-500">
-              <span>✓ Sin compromiso</span>
-              <span>✓ Resultado inmediato</span>
-              <span>✓ Sin registro inicial</span>
-            </div>
+      <div class="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-slate-500">
+        <span>✓ {t.noCommitment}</span>
+        <span>✓ {t.instantResult}</span>
+        <span>✓ {t.noRegistration}</span>
+      </div>
 
-          </div>
+    </div>
 
 
-          <!-- Project Check -->
-            <div class="flex items-center justify-center">
-              <ProjectCheck />
-            </div>
+    <!-- Project Check -->
+    <div class="flex items-center justify-center">
+      <ProjectCheck lang={lang} />
+    </div>
 
-        </div>
-      </section>
+  </div>
+</section>
 
 
 
@@ -175,53 +390,64 @@ const alternateLanguageLabel = isSpanish
 
     <div class="max-w-3xl">
       <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
-        El problema
+        {t.problemLabel}
       </p>
 
       <h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#102f38] sm:text-4xl">
-        El conocimiento está en tus proyectos.
-        <span class="text-slate-400">El problema es encontrarlo, comprobarlo y reutilizarlo.</span>
+        {t.problemTitle}
+        <span class="text-slate-400">
+          {' '}{t.problemTitleMuted}
+        </span>
       </h2>
 
       <p class="mt-6 text-lg leading-8 text-slate-600">
-        Documentos, hojas de cálculo, correos, informes, evidencias y decisiones
-        terminan repartidos entre distintas fuentes. El resultado es tiempo perdido
-        buscando información, copiando datos y verificando una y otra vez lo mismo.
+        {t.problemIntro}
       </p>
     </div>
 
     <div class="mt-14 grid gap-5 md:grid-cols-3">
 
       <article class="rounded-2xl border border-slate-200 bg-[#f7f8f5] p-6">
-        <p class="text-3xl font-semibold text-[#2d7d73]">01</p>
+        <p class="text-3xl font-semibold text-[#2d7d73]">
+          01
+        </p>
+
         <h3 class="mt-5 text-xl font-semibold text-[#102f38]">
-          Información dispersa
+          {t.problem1Title}
         </h3>
+
         <p class="mt-3 leading-7 text-slate-600">
-          Datos relevantes repartidos entre documentos, carpetas, herramientas
-          y personas.
+          {t.problem1Text}
         </p>
       </article>
 
+
       <article class="rounded-2xl border border-slate-200 bg-[#f7f8f5] p-6">
-        <p class="text-3xl font-semibold text-[#2d7d73]">02</p>
+        <p class="text-3xl font-semibold text-[#2d7d73]">
+          02
+        </p>
+
         <h3 class="mt-5 text-xl font-semibold text-[#102f38]">
-          Trabajo repetitivo
+          {t.problem2Title}
         </h3>
+
         <p class="mt-3 leading-7 text-slate-600">
-          Buscar, copiar, consolidar, comprobar y volver a preparar información
-          que ya existe.
+          {t.problem2Text}
         </p>
       </article>
 
+
       <article class="rounded-2xl border border-slate-200 bg-[#f7f8f5] p-6">
-        <p class="text-3xl font-semibold text-[#2d7d73]">03</p>
+        <p class="text-3xl font-semibold text-[#2d7d73]">
+          03
+        </p>
+
         <h3 class="mt-5 text-xl font-semibold text-[#102f38]">
-          Evidencia difícil de seguir
+          {t.problem3Title}
         </h3>
+
         <p class="mt-3 leading-7 text-slate-600">
-          Cuesta reconstruir de dónde procede un dato y demostrar qué información
-          respalda una conclusión.
+          {t.problem3Text}
         </p>
       </article>
 
@@ -238,16 +464,15 @@ const alternateLanguageLabel = isSpanish
 
       <div>
         <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
-          Cómo funciona
+          {t.howLabel}
         </p>
 
         <h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#102f38] sm:text-4xl">
-          De información dispersa a conocimiento operativo verificable.
+          {t.howTitle}
         </h2>
 
         <p class="mt-6 text-lg leading-8 text-slate-600">
-          CLARISENDA estructura el proceso para que cada resultado pueda
-          relacionarse con la información que lo respalda.
+          {t.howIntro}
         </p>
       </div>
 
@@ -261,11 +486,11 @@ const alternateLanguageLabel = isSpanish
 
           <div>
             <h3 class="text-lg font-semibold text-[#102f38]">
-              Conectamos las fuentes
+              {t.step1Title}
             </h3>
+
             <p class="mt-2 leading-7 text-slate-600">
-              Identificamos qué información interviene realmente en el proceso
-              y cómo se relaciona.
+              {t.step1Text}
             </p>
           </div>
         </div>
@@ -278,11 +503,11 @@ const alternateLanguageLabel = isSpanish
 
           <div>
             <h3 class="text-lg font-semibold text-[#102f38]">
-              Estructuramos y trazamos
+              {t.step2Title}
             </h3>
+
             <p class="mt-2 leading-7 text-slate-600">
-              Convertimos datos y documentos en información estructurada,
-              vinculando resultados y evidencias.
+              {t.step2Text}
             </p>
           </div>
         </div>
@@ -295,11 +520,11 @@ const alternateLanguageLabel = isSpanish
 
           <div>
             <h3 class="text-lg font-semibold text-[#102f38]">
-              Automatizamos lo repetitivo
+              {t.step3Title}
             </h3>
+
             <p class="mt-2 leading-7 text-slate-600">
-              Reducimos tareas mecánicas de búsqueda, consolidación,
-              comprobación y preparación documental.
+              {t.step3Text}
             </p>
           </div>
         </div>
@@ -312,11 +537,11 @@ const alternateLanguageLabel = isSpanish
 
           <div>
             <h3 class="text-lg font-semibold text-[#102f38]">
-              Tú mantienes el control
+              {t.step4Title}
             </h3>
+
             <p class="mt-2 leading-7 text-slate-600">
-              La automatización ayuda a preparar y verificar información;
-              la decisión profesional sigue estando en tus manos.
+              {t.step4Text}
             </p>
           </div>
         </div>
@@ -333,23 +558,24 @@ const alternateLanguageLabel = isSpanish
 
     <div class="max-w-3xl">
       <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
-        Soluciones
+        {t.solutionsLabel}
       </p>
 
       <h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#102f38] sm:text-4xl">
-        Empieza por el problema que necesitas resolver.
+        {t.solutionsTitle}
       </h2>
 
       <p class="mt-5 text-lg leading-8 text-slate-600">
-        CLARISENDA adapta el nivel de implantación a la complejidad real
-        de cada organización y proceso.
+        {t.solutionsIntro}
       </p>
     </div>
 
 
     <div class="mt-14 grid gap-5 lg:grid-cols-3">
 
+      <!-- PROJECT EVIDENCE -->
       <article class="flex flex-col rounded-3xl border border-slate-200 p-7">
+
         <p class="text-sm font-semibold text-[#2d7d73]">
           CLARISENDA
         </p>
@@ -359,25 +585,29 @@ const alternateLanguageLabel = isSpanish
         </h3>
 
         <p class="mt-4 flex-1 leading-7 text-slate-600">
-          Convierte información dispersa en entregables estructurados,
-          manteniendo la relación entre cada dato y su evidencia.
+          {t.evidenceText}
         </p>
 
         <p class="mt-7 text-sm font-semibold text-[#123b45]">
-          Para procesos documentales y entregables recurrentes →
+          {t.evidenceFor}
         </p>
+
       </article>
 
 
+      <!-- AUDIT READY -->
       <article class="flex flex-col rounded-3xl border-2 border-[#2d7d73] bg-[#f4f9f7] p-7">
+
         <div class="flex items-center justify-between gap-4">
+
           <p class="text-sm font-semibold text-[#2d7d73]">
             CLARISENDA
           </p>
 
           <span class="rounded-full bg-[#e2efeb] px-3 py-1 text-xs font-semibold text-[#2d7d73]">
-            Trazabilidad
+            {t.auditBadge}
           </span>
+
         </div>
 
         <h3 class="mt-2 text-2xl font-semibold text-[#102f38]">
@@ -385,17 +615,19 @@ const alternateLanguageLabel = isSpanish
         </h3>
 
         <p class="mt-4 flex-1 leading-7 text-slate-600">
-          Organiza evidencias, fuentes y verificaciones para que la información
-          pueda revisarse y reconstruirse con mayor facilidad.
+          {t.auditText}
         </p>
 
         <p class="mt-7 text-sm font-semibold text-[#123b45]">
-          Para proyectos que requieren justificación y revisión →
+          {t.auditFor}
         </p>
+
       </article>
 
 
+      <!-- PROJECT CONTROL -->
       <article class="flex flex-col rounded-3xl border border-slate-200 p-7">
+
         <p class="text-sm font-semibold text-[#2d7d73]">
           CLARISENDA
         </p>
@@ -405,13 +637,13 @@ const alternateLanguageLabel = isSpanish
         </h3>
 
         <p class="mt-4 flex-1 leading-7 text-slate-600">
-          Lleva la trazabilidad al seguimiento operativo para relacionar
-          información, evidencias, estado y decisiones del proyecto.
+          {t.controlText}
         </p>
 
         <p class="mt-7 text-sm font-semibold text-[#123b45]">
-          Para entornos complejos y múltiples fuentes →
+          {t.controlFor}
         </p>
+
       </article>
 
     </div>
@@ -426,50 +658,73 @@ const alternateLanguageLabel = isSpanish
     <div class="grid gap-14 lg:grid-cols-2">
 
       <div>
+
         <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#79c0b7]">
-          Confianza por diseño
+          {t.trustLabel}
         </p>
 
         <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-          Automatizar no significa perder el control.
+          {t.trustTitle}
         </h2>
 
         <p class="mt-6 max-w-xl text-lg leading-8 text-white/70">
-          CLARISENDA se plantea para entornos profesionales donde no basta
-          con obtener una respuesta: importa poder entender de dónde procede
-          la información que la sustenta.
+          {t.trustIntro}
         </p>
+
       </div>
 
 
       <div class="grid gap-4 sm:grid-cols-2">
 
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-          <p class="font-semibold">Trazabilidad</p>
-          <p class="mt-2 text-sm leading-6 text-white/60">
-            Relación entre resultados, fuentes y evidencias.
+
+          <p class="font-semibold">
+            {t.traceability}
           </p>
+
+          <p class="mt-2 text-sm leading-6 text-white/60">
+            {t.traceabilityText}
+          </p>
+
         </div>
 
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-          <p class="font-semibold">Revisión humana</p>
-          <p class="mt-2 text-sm leading-6 text-white/60">
-            La automatización asiste; el criterio profesional decide.
-          </p>
-        </div>
 
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-          <p class="font-semibold">Arquitectura portable</p>
-          <p class="mt-2 text-sm leading-6 text-white/60">
-            Tecnología diseñada para evitar dependencias innecesarias.
+
+          <p class="font-semibold">
+            {t.humanReview}
           </p>
+
+          <p class="mt-2 text-sm leading-6 text-white/60">
+            {t.humanReviewText}
+          </p>
+
         </div>
 
+
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-          <p class="font-semibold">Seguridad desde el diseño</p>
-          <p class="mt-2 text-sm leading-6 text-white/60">
-            El nivel de protección se adapta al contexto y requisitos del proyecto.
+
+          <p class="font-semibold">
+            {t.portable}
           </p>
+
+          <p class="mt-2 text-sm leading-6 text-white/60">
+            {t.portableText}
+          </p>
+
+        </div>
+
+
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+
+          <p class="font-semibold">
+            {t.securityDesign}
+          </p>
+
+          <p class="mt-2 text-sm leading-6 text-white/60">
+            {t.securityDesignText}
+          </p>
+
         </div>
 
       </div>
@@ -484,23 +739,22 @@ const alternateLanguageLabel = isSpanish
   <div class="mx-auto max-w-5xl px-6 py-24 text-center">
 
     <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
-      Cada dato. Su evidencia.
+      {t.finalClaim}
     </p>
 
     <h2 class="mx-auto mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-[#102f38] sm:text-5xl">
-      Empieza comprobando si el problema merece ser automatizado.
+      {t.finalTitle}
     </h2>
 
     <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-      Project Check te proporciona una primera estimación económica
-      antes de pedirte que hables con nosotros.
+      {t.finalIntro}
     </p>
 
     <a
       href="#project-check"
       class="mt-9 inline-flex rounded-xl bg-[#123b45] px-7 py-4 font-semibold text-white transition hover:bg-[#0d3038]"
     >
-      Calcular mi rentabilidad
+      {t.finalButton}
     </a>
 
   </div>
@@ -512,22 +766,31 @@ const alternateLanguageLabel = isSpanish
   <div class="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8">
 
     <div>
+
       <span class="font-semibold tracking-[0.12em] text-[#123b45]">
         CLARISENDA
       </span>
+
       <span class="ml-3">
-        Cada dato. Su evidencia.
+        {t.footerClaim}
       </span>
+
     </div>
 
+
     <div class="flex flex-wrap gap-5">
-      <a href="mailto:info@clarisenda.com" class="hover:text-[#123b45]">
+
+      <a
+        href="mailto:info@clarisenda.com"
+        class="hover:text-[#123b45]"
+      >
         info@clarisenda.com
       </a>
 
       <span>
-        Granada · España · Global
+        {t.location}
       </span>
+
     </div>
 
   </div>
