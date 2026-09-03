@@ -174,9 +174,9 @@ disclaimer:
 <div
   id="project-check"
   data-lang={lang}
-  class="w-full max-w-xl rounded-3xl border border-slate-200 bg-white p-7 shadow-[0_20px_70px_rgba(15,45,55,0.10)] sm:p-9"
+  class="w-full max-w-xl scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-7 shadow-[0_20px_70px_rgba(15,45,55,0.10)] sm:p-9"
 >
-  <div>
+  <div id="project-check-intro">
     <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
       {t.label}
     </p>
@@ -442,7 +442,7 @@ disclaimer:
 
   <!-- RESULTADOS -->
 
-  <div id="results" class="mt-8 hidden border-t border-slate-200 pt-7">
+  <div id="results" class="hidden">
 
     <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#2d7d73]">
       {t.diagnosis}
@@ -1659,9 +1659,27 @@ Gracias.`;
   MOSTRAR RESULTADOS
 */
 
-document
-  .querySelector('#results')
-  ?.classList.remove('hidden');
+const introElement =
+  document.querySelector<HTMLElement>(
+    '#project-check-intro'
+  );
+
+const resultsElement =
+  document.querySelector<HTMLElement>(
+    '#results'
+  );
+
+
+introElement?.classList.add('hidden');
+form?.classList.add('hidden');
+
+resultsElement?.classList.remove('hidden');
+
+
+projectCheck?.scrollIntoView({
+  behavior: 'smooth',
+  block: 'start',
+});
 
 });
 
@@ -1671,17 +1689,52 @@ const recalculateButton =
     '#recalculate'
   );
 
+
 recalculateButton?.addEventListener('click', () => {
 
-  form?.scrollIntoView({
+  const resultsElement =
+  document.querySelector<HTMLElement>(
+    '#results'
+  );
+
+const introElement =
+  document.querySelector<HTMLElement>(
+    '#project-check-intro'
+  );
+
+
+/*
+  VOLVER AL FORMULARIO
+*/
+
+resultsElement?.classList.add('hidden');
+
+introElement?.classList.remove('hidden');
+form?.classList.remove('hidden');
+
+
+  /*
+    VOLVER A PROJECT CHECK
+  */
+
+  projectCheck?.scrollIntoView({
     behavior: 'smooth',
     block: 'start',
   });
 
+
+  /*
+    FOCALIZAR PRIMER CAMPO
+  */
+
   setTimeout(() => {
+
     document
-      .querySelector<HTMLInputElement>('#deliverables')
+      .querySelector<HTMLInputElement>(
+        '#deliverables'
+      )
       ?.focus();
+
   }, 500);
 
 });

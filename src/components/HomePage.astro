@@ -32,6 +32,7 @@ const alternateLanguageLabel = isSpanish
   ? 'EN'
   : 'ES';
 
+const currentYear = new Date().getFullYear();
 
 const t = isSpanish
   ? {
@@ -52,6 +53,16 @@ const t = isSpanish
       noCommitment: 'Sin compromiso',
       instantResult: 'Resultado inmediato',
       noRegistration: 'Sin registro inicial',
+
+      visualInput: 'Información dispersa',
+      visualDocs: 'Documentos',
+      visualSheets: 'Datos',
+      visualEmails: 'Correos',
+      visualProcess: 'CLARISENDA',
+      visualProcessText: 'Estructura · relaciona · verifica',
+      visualOutput: 'Evidencia operativa',
+      visualTraceable: 'Trazable',
+      visualVerifiable: 'Verificable',
 
       problemLabel: 'El problema',
       problemTitle: 'El conocimiento está en tus proyectos.',
@@ -157,6 +168,16 @@ const t = isSpanish
       instantResult: 'Instant result',
       noRegistration: 'No registration required',
 
+      visualInput: 'Fragmented information',
+      visualDocs: 'Documents',
+      visualSheets: 'Data',
+      visualEmails: 'Emails',
+      visualProcess: 'CLARISENDA',
+      visualProcessText: 'Structure · connect · verify',
+      visualOutput: 'Operational evidence',
+      visualTraceable: 'Traceable',
+      visualVerifiable: 'Verifiable',
+
       problemLabel: 'The problem',
       problemTitle: 'The knowledge is already in your projects.',
       problemTitleMuted:
@@ -259,19 +280,26 @@ const t = isSpanish
   <div class="min-h-screen bg-[#f7f8f5] text-slate-900">
 
     <!-- CABECERA -->
-<header class="border-b border-slate-200/80 bg-[#f7f8f5]/95">
-  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-6 lg:px-8">
+<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-[#f7f8f5]/95 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
 
     <a
       href={canonicalPath}
-      class="text-xl font-bold tracking-[0.16em] text-[#123b45]"
+      class="flex items-center"
+      aria-label="CLARISENDA"
     >
-      CLARISENDA
+      <img
+        src="/logo-clarisenda.png"
+        alt="CLARISENDA"
+        width="450"
+        height="150"
+        class="h-12 w-auto object-contain sm:h-14"
+      />
     </a>
 
     <nav class="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
       <a
-        href="#{t.navHow}"
+        href="#como-funciona"
         class="transition hover:text-[#123b45]"
       >
         {isSpanish ? 'Cómo funciona' : 'How it works'}
@@ -297,14 +325,14 @@ const t = isSpanish
       <a
         href={alternateLanguageUrl}
         aria-label={isSpanish ? 'English version' : 'Versión en español'}
-        class="flex h-9 min-w-9 items-center justify-center rounded-lg border border-slate-300 px-2 text-xs font-semibold text-slate-600 transition hover:border-[#2d7d73] hover:text-[#2d7d73]"
+        class="flex h-11 min-w-11 items-center justify-center rounded-xl border border-slate-300 px-3 text-sm font-semibold text-slate-600 transition hover:border-[#2d7d73] hover:text-[#2d7d73]"
       >
         {alternateLanguageLabel}
       </a>
 
       <a
         href="#project-check"
-        class="rounded-lg bg-[#123b45] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0d3038] sm:px-5"
+        class="rounded-xl bg-[#123b45] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0d3038] sm:px-6"
       >
         <span class="sm:hidden">
           {isSpanish ? 'Calcular' : 'Calculate'}
@@ -323,42 +351,54 @@ const t = isSpanish
 
 <!-- HERO -->
 <main>
-<section class="relative overflow-hidden">
-  <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:px-8 lg:py-28">
+<section class="relative overflow-hidden bg-[radial-gradient(circle_at_18%_22%,rgba(45,125,115,0.08),transparent_32%),radial-gradient(circle_at_88%_30%,rgba(18,59,69,0.05),transparent_30%)]">
+
+  <!-- Fondo decorativo -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -left-32 top-32 h-80 w-80 rounded-full bg-[#2d7d73]/5 blur-3xl"
+  ></div>
+
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-32 top-20 h-96 w-96 rounded-full bg-[#123b45]/5 blur-3xl"
+  ></div>
+
+  <div class="relative z-10 mx-auto grid max-w-7xl gap-10 px-5 pt-10 pb-16 sm:px-6 sm:pt-12 sm:pb-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:px-8 lg:pt-16 lg:pb-24">
 
     <!-- Mensaje principal -->
-    <div class="flex flex-col justify-center">
+    <div class="flex flex-col justify-start">
 
       <div class="mb-6">
-        <span class="inline-flex rounded-full border border-[#6aa69f]/30 bg-[#6aa69f]/10 px-3 py-2 text-xs font-semibold text-[#27665f] sm:px-4 sm:text-sm">
+        <span class="inline-flex items-center rounded-full border border-[#6aa69f]/30 bg-white/60 px-4 py-2 text-xs font-semibold text-[#27665f] shadow-sm backdrop-blur sm:text-sm">
           {t.eyebrow}
         </span>
       </div>
 
-      <h1 class="max-w-3xl text-[2.65rem] font-semibold leading-[1.06] tracking-tight text-[#102f38] sm:text-5xl lg:text-6xl">
+      <h1 class="max-w-3xl text-[2.75rem] font-semibold leading-[1.02] tracking-[-0.035em] text-[#102f38] sm:text-5xl lg:text-[4.25rem]">
         {t.heroStart}
         <span class="text-[#2d7d73]"> {t.heroHighlight}</span>
       </h1>
 
-      <p class="mt-7 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+      <p class="mt-7 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
         {t.heroText1}
       </p>
 
-      <p class="mt-3 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+      <p class="mt-3 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
         {t.heroText2}
       </p>
 
       <div class="mt-9 flex flex-col gap-4 sm:flex-row">
         <a
           href="#project-check"
-          class="rounded-lg bg-[#123b45] px-6 py-3.5 text-center font-semibold text-white shadow-sm transition hover:bg-[#0d3038]"
+          class="inline-flex items-center justify-center rounded-xl bg-[#123b45] px-7 py-4 text-center font-semibold text-white shadow-[0_10px_30px_rgba(18,59,69,0.16)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#0d3038] hover:shadow-[0_14px_36px_rgba(18,59,69,0.22)]"
         >
           {t.calculate}
         </a>
 
         <a
           href="#como-funciona"
-          class="rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-center font-semibold text-slate-700 transition hover:border-slate-400"
+          class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white/80 px-7 py-4 text-center font-semibold text-slate-700 backdrop-blur transition duration-200 hover:-translate-y-0.5 hover:border-[#2d7d73]/50 hover:text-[#123b45]"
         >
           {t.discover}
         </a>
@@ -370,13 +410,136 @@ const t = isSpanish
         <span>✓ {t.noRegistration}</span>
       </div>
 
+      <!-- Visualización CLARISENDA -->
+<div class="mt-12 hidden max-w-2xl lg:block">
+
+  <div class="rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-sm">
+
+    <div class="grid grid-cols-[1fr_auto_1.1fr_auto_1fr] items-center gap-3">
+
+      <!-- ENTRADA -->
+      <div>
+        <p class="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
+          {t.visualInput}
+        </p>
+
+        <div class="space-y-2">
+
+          <div class="flex items-center gap-2 rounded-lg border border-slate-200 bg-[#f7f8f5] px-3 py-2">
+            <span class="flex h-7 w-7 items-center justify-center rounded-md bg-white text-[#2d7d73] shadow-sm">
+              ▤
+            </span>
+            <span class="text-sm font-medium text-slate-600">
+              {t.visualDocs}
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2 rounded-lg border border-slate-200 bg-[#f7f8f5] px-3 py-2">
+            <span class="flex h-7 w-7 items-center justify-center rounded-md bg-white text-[#2d7d73] shadow-sm">
+              #
+            </span>
+            <span class="text-sm font-medium text-slate-600">
+              {t.visualSheets}
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2 rounded-lg border border-slate-200 bg-[#f7f8f5] px-3 py-2">
+            <span class="flex h-7 w-7 items-center justify-center rounded-md bg-white text-[#2d7d73] shadow-sm">
+              @
+            </span>
+            <span class="text-sm font-medium text-slate-600">
+              {t.visualEmails}
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- FLECHA -->
+      <div class="pt-7 text-2xl font-light text-[#2d7d73]">
+        →
+      </div>
+
+
+      <!-- MOTOR CLARISENDA -->
+      <div class="pt-7">
+
+        <div
+          class="rounded-2xl bg-[#123b45] px-4 py-5 text-center shadow-[0_12px_30px_rgba(18,59,69,0.16)]"
+        >
+
+          <div
+            class="mx-auto flex min-h-14 items-center justify-center rounded-xl bg-white px-3 py-3 shadow-sm"
+          >
+            <img
+              src="/logo-clarisenda.png"
+              alt="CLARISENDA"
+              width="220"
+              height="74"
+              class="h-9 w-auto max-w-full object-contain"
+            />
+          </div>
+
+          <p class="mt-4 text-xs leading-5 text-white/65">
+            {t.visualProcessText}
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- FLECHA -->
+      <div class="pt-7 text-xl text-[#6aa69f]">
+        →
+      </div>
+
+
+      <!-- SALIDA -->
+      <div>
+
+        <p class="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
+          {t.visualOutput}
+        </p>
+
+        <div class="rounded-xl border border-[#6aa69f]/40 bg-[#eaf4f1] p-4 shadow-sm">
+
+          <div class="flex items-center gap-2">
+            <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#2d7d73] text-sm font-semibold text-white">
+              ✓
+            </span>
+
+            <div>
+              <p class="text-sm font-semibold text-[#123b45]">
+                {t.visualTraceable}
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-3 border-t border-[#6aa69f]/20 pt-3">
+            <p class="text-sm font-semibold text-[#123b45]">
+              ✓ {t.visualVerifiable}
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+      
     </div>
 
 
     <!-- Project Check -->
-    <div class="flex items-center justify-center">
-      <ProjectCheck lang={lang} />
-    </div>
+      <div class="flex self-start justify-center lg:pt-1">
+        <ProjectCheck lang={lang} />
+      </div>
 
   </div>
 </section>
@@ -385,415 +548,1209 @@ const t = isSpanish
 
 
 <!-- EL PROBLEMA -->
-<section class="border-t border-slate-200 bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+<section class="border-t border-slate-200/80 bg-white">
+  <div class="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8 lg:py-24">
 
+    <!-- CABECERA -->
     <div class="max-w-3xl">
+
       <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
         {t.problemLabel}
       </p>
 
-      <h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#102f38] sm:text-4xl">
+      <h2 class="mt-4 text-3xl font-semibold tracking-[-0.025em] text-[#102f38] sm:text-4xl lg:text-[2.7rem] lg:leading-[1.08]">
         {t.problemTitle}
+
         <span class="text-slate-400">
           {' '}{t.problemTitleMuted}
         </span>
       </h2>
 
-      <p class="mt-6 text-lg leading-8 text-slate-600">
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
         {t.problemIntro}
       </p>
+
     </div>
 
-    <div class="mt-14 grid gap-5 md:grid-cols-3">
 
-      <article class="rounded-2xl border border-slate-200 bg-[#f7f8f5] p-6">
-        <p class="text-3xl font-semibold text-[#2d7d73]">
-          01
-        </p>
+    <!-- PROBLEMAS -->
+    <div class="mt-10 grid gap-5 sm:mt-12 lg:mt-14 md:grid-cols-3">
 
-        <h3 class="mt-5 text-xl font-semibold text-[#102f38]">
+      <!-- INFORMACIÓN DISPERSA -->
+      <article
+        class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-[#f8f9f7] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#6aa69f]/50 hover:shadow-[0_18px_45px_rgba(18,59,69,0.08)]"
+      >
+
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#2d7d73] to-[#6aa69f]"></div>
+
+        <div class="flex items-start justify-between">
+
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e5f1ee] text-[#2d7d73]"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              class="h-6 w-6"
+              aria-hidden="true"
+            >
+              <path d="M7 7V4.75A1.75 1.75 0 0 1 8.75 3h8.5A1.75 1.75 0 0 1 19 4.75v10.5A1.75 1.75 0 0 1 17.25 17H15" />
+              <rect x="3" y="7" width="12" height="14" rx="2" />
+              <path d="M6.5 11h5M6.5 14.5h5M6.5 18h3" />
+            </svg>
+          </div>
+
+          <div class="flex items-center gap-2">
+            
+
+            <span class="text-sm font-semibold tracking-[0.12em] text-slate-400">
+              01
+            </span>
+          </div>
+
+        </div>
+
+        <h3 class="mt-7 text-xl font-semibold tracking-tight text-[#102f38]">
           {t.problem1Title}
         </h3>
 
         <p class="mt-3 leading-7 text-slate-600">
           {t.problem1Text}
         </p>
+
       </article>
 
 
-      <article class="rounded-2xl border border-slate-200 bg-[#f7f8f5] p-6">
-        <p class="text-3xl font-semibold text-[#2d7d73]">
-          02
-        </p>
+      <!-- TRABAJO REPETITIVO -->
+      <article
+        class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-[#f8f9f7] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#6aa69f]/50 hover:shadow-[0_18px_45px_rgba(18,59,69,0.08)]"
+      >
 
-        <h3 class="mt-5 text-xl font-semibold text-[#102f38]">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#2d7d73] to-[#6aa69f]"></div>
+
+        <div class="flex items-start justify-between">
+
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e5f1ee] text-[#2d7d73]"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              aria-hidden="true"
+            >
+              <path d="M20 7h-5V2" />
+              <path d="M4.9 17a8 8 0 0 0 13.7-2" />
+              <path d="M4 17h5v5" />
+              <path d="M19.1 7A8 8 0 0 0 5.4 9" />
+            </svg>
+          </div>
+
+          <div class="flex items-center gap-2">
+            
+
+            <span class="text-sm font-semibold tracking-[0.12em] text-slate-400">
+              02
+            </span>
+          </div>
+
+        </div>
+
+        <h3 class="mt-7 text-xl font-semibold tracking-tight text-[#102f38]">
           {t.problem2Title}
         </h3>
 
         <p class="mt-3 leading-7 text-slate-600">
           {t.problem2Text}
         </p>
+
       </article>
 
 
-      <article class="rounded-2xl border border-slate-200 bg-[#f7f8f5] p-6">
-        <p class="text-3xl font-semibold text-[#2d7d73]">
-          03
-        </p>
+      <!-- EVIDENCIA DIFÍCIL DE SEGUIR -->
+      <article
+        class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-[#f8f9f7] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#6aa69f]/50 hover:shadow-[0_18px_45px_rgba(18,59,69,0.08)]"
+      >
 
-        <h3 class="mt-5 text-xl font-semibold text-[#102f38]">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#2d7d73] to-[#6aa69f]"></div>
+
+        <div class="flex items-start justify-between">
+
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e5f1ee] text-[#2d7d73]"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              aria-hidden="true"
+            >
+              <circle cx="6" cy="6" r="2.2" />
+              <circle cx="18" cy="6" r="2.2" />
+              <circle cx="12" cy="18" r="2.2" />
+              <path d="M8 7.2l2.8 7.6M16 7.2l-2.8 7.6" />
+              <path d="M8.2 6h7.6" stroke-dasharray="2.5 2.5" />
+            </svg>
+          </div>
+
+          <div class="flex items-center gap-2">
+            
+
+            <span class="text-sm font-semibold tracking-[0.12em] text-slate-400">
+              03
+            </span>
+          </div>
+
+        </div>
+
+        <h3 class="mt-7 text-xl font-semibold tracking-tight text-[#102f38]">
           {t.problem3Title}
         </h3>
 
         <p class="mt-3 leading-7 text-slate-600">
           {t.problem3Text}
         </p>
+
       </article>
 
     </div>
+
   </div>
 </section>
 
 
 <!-- CÓMO FUNCIONA -->
-<section id="como-funciona" class="bg-[#f7f8f5]">
-  <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+<section id="como-funciona" class="relative overflow-hidden bg-[#f7f8f5]">
 
-    <div class="grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
+  <!-- Fondo decorativo muy sutil -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-40 top-10 h-96 w-96 rounded-full bg-[#2d7d73]/5 blur-3xl"
+  ></div>
 
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
-          {t.howLabel}
-        </p>
+  <div class="relative mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8 lg:py-24">
 
-        <h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#102f38] sm:text-4xl">
-          {t.howTitle}
-        </h2>
+    <!-- CABECERA -->
+    <div class="max-w-3xl">
 
-        <p class="mt-6 text-lg leading-8 text-slate-600">
-          {t.howIntro}
-        </p>
-      </div>
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
+        {t.howLabel}
+      </p>
 
+      <h2 class="mt-4 text-3xl font-semibold tracking-[-0.025em] text-[#102f38] sm:text-4xl lg:text-[2.7rem] lg:leading-[1.08]">
+        {t.howTitle}
+      </h2>
 
-      <div class="space-y-4">
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+        {t.howIntro}
+      </p>
 
-        <div class="flex gap-5 rounded-2xl border border-slate-200 bg-white p-6">
-          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e5f1ee] font-semibold text-[#2d7d73]">
-            1
-          </div>
-
-          <div>
-            <h3 class="text-lg font-semibold text-[#102f38]">
-              {t.step1Title}
-            </h3>
-
-            <p class="mt-2 leading-7 text-slate-600">
-              {t.step1Text}
-            </p>
-          </div>
-        </div>
-
-
-        <div class="flex gap-5 rounded-2xl border border-slate-200 bg-white p-6">
-          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e5f1ee] font-semibold text-[#2d7d73]">
-            2
-          </div>
-
-          <div>
-            <h3 class="text-lg font-semibold text-[#102f38]">
-              {t.step2Title}
-            </h3>
-
-            <p class="mt-2 leading-7 text-slate-600">
-              {t.step2Text}
-            </p>
-          </div>
-        </div>
-
-
-        <div class="flex gap-5 rounded-2xl border border-slate-200 bg-white p-6">
-          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e5f1ee] font-semibold text-[#2d7d73]">
-            3
-          </div>
-
-          <div>
-            <h3 class="text-lg font-semibold text-[#102f38]">
-              {t.step3Title}
-            </h3>
-
-            <p class="mt-2 leading-7 text-slate-600">
-              {t.step3Text}
-            </p>
-          </div>
-        </div>
-
-
-        <div class="flex gap-5 rounded-2xl border border-slate-200 bg-white p-6">
-          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#e5f1ee] font-semibold text-[#2d7d73]">
-            4
-          </div>
-
-          <div>
-            <h3 class="text-lg font-semibold text-[#102f38]">
-              {t.step4Title}
-            </h3>
-
-            <p class="mt-2 leading-7 text-slate-600">
-              {t.step4Text}
-            </p>
-          </div>
-        </div>
-
-      </div>
     </div>
+
+
+    <!-- FLUJO -->
+    <div
+      class="mt-10 grid gap-4 sm:mt-12 lg:mt-14 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] lg:items-stretch"
+    >
+
+      <!-- PASO 1 -->
+      <article
+        class="group relative rounded-3xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#6aa69f]/50 hover:shadow-[0_18px_45px_rgba(18,59,69,0.08)]"
+      >
+
+        <div class="flex items-center justify-between">
+
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e5f1ee] text-[#2d7d73]"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              aria-hidden="true"
+            >
+              <rect x="3" y="4" width="7" height="6" rx="1.5" />
+              <rect x="14" y="4" width="7" height="6" rx="1.5" />
+              <rect x="3" y="14" width="7" height="6" rx="1.5" />
+              <rect x="14" y="14" width="7" height="6" rx="1.5" />
+            </svg>
+          </div>
+
+          <div class="flex items-center gap-2">
+            
+
+            <span class="text-sm font-semibold tracking-[0.12em] text-slate-400">
+              01
+            </span>
+          </div>
+
+        </div>
+
+        <h3 class="mt-7 text-xl font-semibold tracking-tight text-[#102f38]">
+          {t.step1Title}
+        </h3>
+
+        <p class="mt-3 leading-7 text-slate-600">
+          {t.step1Text}
+        </p>
+
+      </article>
+
+
+      <!-- FLECHA 1 -->
+      <div
+        aria-hidden="true"
+        class="hidden items-center justify-center px-1 text-2xl font-light text-[#6aa69f] lg:flex"
+      >
+        →
+      </div>
+
+
+      <!-- PASO 2 -->
+      <article
+        class="group relative rounded-3xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#6aa69f]/50 hover:shadow-[0_18px_45px_rgba(18,59,69,0.08)]"
+      >
+
+        <div class="flex items-center justify-between">
+
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e5f1ee] text-[#2d7d73]"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              aria-hidden="true"
+            >
+              <circle cx="5" cy="12" r="2" />
+              <circle cx="12" cy="5" r="2" />
+              <circle cx="19" cy="12" r="2" />
+              <circle cx="12" cy="19" r="2" />
+              <path d="M6.6 10.6l3.8-4M13.6 6.5l3.8 4M17.4 13.5l-3.8 4M10.4 17.5l-3.8-4" />
+            </svg>
+          </div>
+
+          <div class="flex items-center gap-2">
+            
+
+            <span class="text-sm font-semibold tracking-[0.12em] text-slate-400">
+              02
+            </span>
+          </div>
+
+        </div>
+
+        <h3 class="mt-7 text-xl font-semibold tracking-tight text-[#102f38]">
+          {t.step2Title}
+        </h3>
+
+        <p class="mt-3 leading-7 text-slate-600">
+          {t.step2Text}
+        </p>
+
+      </article>
+
+
+      <!-- FLECHA 2 -->
+      <div
+        aria-hidden="true"
+        class="hidden items-center justify-center px-1 text-2xl font-light text-[#6aa69f] lg:flex"
+      >
+        →
+      </div>
+
+
+      <!-- PASO 3 -->
+      <article
+        class="group relative rounded-3xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#6aa69f]/50 hover:shadow-[0_18px_45px_rgba(18,59,69,0.08)]"
+      >
+
+        <div class="flex items-center justify-between">
+
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e5f1ee] text-[#2d7d73]"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              aria-hidden="true"
+            >
+              <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
+              <circle cx="12" cy="12" r="4" />
+              <path d="M6.3 6.3l2.1 2.1M15.6 15.6l2.1 2.1M17.7 6.3l-2.1 2.1M8.4 15.6l-2.1 2.1" />
+            </svg>
+          </div>
+
+          <div class="flex items-center gap-2">
+            
+
+            <span class="text-sm font-semibold tracking-[0.12em] text-slate-400">
+              03
+            </span>
+          </div>
+
+        </div>
+
+        <h3 class="mt-7 text-xl font-semibold tracking-tight text-[#102f38]">
+          {t.step3Title}
+        </h3>
+
+        <p class="mt-3 leading-7 text-slate-600">
+          {t.step3Text}
+        </p>
+
+      </article>
+
+
+      <!-- FLECHA 3 -->
+      <div
+        aria-hidden="true"
+        class="hidden items-center justify-center px-1 text-2xl font-light text-[#6aa69f] lg:flex"
+      >
+        →
+      </div>
+
+
+      <!-- PASO 4 -->
+      <article
+        class="group relative overflow-hidden rounded-3xl border border-[#2d7d73]/35 bg-[#eaf4f1] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(18,59,69,0.10)]"
+      >
+
+        <div class="absolute inset-x-0 top-0 h-1 bg-[#2d7d73]"></div>
+
+        <div class="flex items-center justify-between">
+
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2d7d73] text-white"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              aria-hidden="true"
+            >
+              <path d="M12 3l7 3v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6l7-3z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-[#f20a78]"></span>
+
+            <span class="text-sm font-semibold tracking-[0.12em] text-[#2d7d73]/60">
+              04
+            </span>
+          </div>
+
+        </div>
+
+        <h3 class="mt-7 text-xl font-semibold tracking-tight text-[#102f38]">
+          {t.step4Title}
+        </h3>
+
+        <p class="mt-3 leading-7 text-slate-600">
+          {t.step4Text}
+        </p>
+
+      </article>
+
+    </div>
+
+
+    <!-- LÍNEA CONCEPTUAL -->
+    <div class="mt-8 hidden items-center lg:flex">
+
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent via-[#6aa69f]/40 to-transparent"></div>
+
+      <div class="mx-5 flex items-center gap-2">
+        <span class="h-2 w-2 rounded-full bg-[#f20a78]"></span>
+        <span class="h-2 w-2 rounded-full bg-[#2d7d73]"></span>
+        <span class="h-2 w-2 rounded-full bg-[#6aa69f]"></span>
+      </div>
+
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent via-[#6aa69f]/40 to-transparent"></div>
+
+    </div>
+
   </div>
 </section>
 
 
 <!-- SOLUCIONES -->
-<section id="soluciones" class="bg-white">
-  <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+<section id="soluciones" class="relative overflow-hidden bg-white">
 
+  <!-- Fondo decorativo -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -left-48 bottom-0 h-96 w-96 rounded-full bg-[#2d7d73]/5 blur-3xl"
+  ></div>
+
+  <div class="relative mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8 lg:py-24">
+
+    <!-- CABECERA -->
     <div class="max-w-3xl">
+
       <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
         {t.solutionsLabel}
       </p>
 
-      <h2 class="mt-4 text-3xl font-semibold tracking-tight text-[#102f38] sm:text-4xl">
+      <h2 class="mt-4 text-3xl font-semibold tracking-[-0.025em] text-[#102f38] sm:text-4xl lg:text-[2.7rem] lg:leading-[1.08]">
         {t.solutionsTitle}
       </h2>
 
-      <p class="mt-5 text-lg leading-8 text-slate-600">
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
         {t.solutionsIntro}
       </p>
+
     </div>
 
 
-    <div class="mt-14 grid gap-5 lg:grid-cols-3">
+    <!-- PROGRESIÓN VISUAL -->
+    <div class="mt-12 hidden items-center lg:flex">
+
+      <div class="flex items-center gap-3">
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#e5f1ee] text-xs font-semibold text-[#2d7d73]">
+          01
+        </span>
+
+        <span class="h-px w-24 bg-[#6aa69f]/40"></span>
+
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#d8ece7] text-xs font-semibold text-[#2d7d73]">
+          02
+        </span>
+
+        <span class="h-px w-24 bg-[#6aa69f]/50"></span>
+
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#123b45] text-xs font-semibold text-white">
+          03
+        </span>
+      </div>
+
+      <span class="ml-4 h-2 w-2 rounded-full bg-[#f20a78]"></span>
+
+    </div>
+
+
+    <!-- SOLUCIONES -->
+    <div class="mt-8 grid gap-6 lg:grid-cols-3 lg:items-stretch">
 
       <!-- PROJECT EVIDENCE -->
-      <article class="flex flex-col rounded-3xl border border-slate-200 p-7">
+      <article
+        class="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-[#fafbf9] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#6aa69f]/50 hover:shadow-[0_18px_45px_rgba(18,59,69,0.08)]"
+      >
 
-        <p class="text-sm font-semibold text-[#2d7d73]">
+        <div class="absolute inset-x-0 top-0 h-1 bg-[#9ac8c2]"></div>
+
+        <div class="flex items-start justify-between">
+
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e5f1ee] text-[#2d7d73]"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              aria-hidden="true"
+            >
+              <path d="M6 3h8l4 4v14H6z" />
+              <path d="M14 3v5h5" />
+              <path d="M9 12h6M9 16h6" />
+            </svg>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-[#f20a78]"></span>
+
+            <span class="text-sm font-semibold tracking-[0.12em] text-slate-400">
+              01
+            </span>
+          </div>
+
+        </div>
+
+        <p class="mt-7 text-xs font-semibold uppercase tracking-[0.15em] text-[#2d7d73]">
           CLARISENDA
         </p>
 
-        <h3 class="mt-2 text-2xl font-semibold text-[#102f38]">
+        <h3 class="mt-2 text-2xl font-semibold tracking-tight text-[#102f38]">
           Project Evidence
         </h3>
 
-        <p class="mt-4 flex-1 leading-7 text-slate-600">
+        <p class="mt-5 flex-1 leading-7 text-slate-600">
           {t.evidenceText}
         </p>
 
-        <p class="mt-7 text-sm font-semibold text-[#123b45]">
-          {t.evidenceFor}
-        </p>
+        <div class="mt-7 border-t border-slate-200 pt-5">
+          <p class="text-sm font-semibold leading-6 text-[#123b45]">
+            {t.evidenceFor}
+          </p>
+        </div>
 
       </article>
 
 
       <!-- AUDIT READY -->
-      <article class="flex flex-col rounded-3xl border-2 border-[#2d7d73] bg-[#f4f9f7] p-7">
+      <article
+        class="group relative flex flex-col overflow-hidden rounded-3xl border-2 border-[#2d7d73] bg-[#f1f8f6] p-7 shadow-[0_18px_50px_rgba(18,59,69,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(18,59,69,0.12)] lg:-translate-y-2"
+      >
 
-        <div class="flex items-center justify-between gap-4">
+        <div class="absolute inset-x-0 top-0 h-1 bg-[#2d7d73]"></div>
 
-          <p class="text-sm font-semibold text-[#2d7d73]">
-            CLARISENDA
-          </p>
+        <div class="flex items-start justify-between">
 
-          <span class="rounded-full bg-[#e2efeb] px-3 py-1 text-xs font-semibold text-[#2d7d73]">
-            {t.auditBadge}
-          </span>
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2d7d73] text-white"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              aria-hidden="true"
+            >
+              <path d="M12 3l7 3v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+          </div>
+
+          <div class="flex items-center gap-3">
+
+            <span class="rounded-full bg-[#dceeea] px-3 py-1 text-xs font-semibold text-[#2d7d73]">
+              {t.auditBadge}
+            </span>
+
+            <span class="h-2 w-2 rounded-full bg-[#f20a78]"></span>
+
+          </div>
 
         </div>
 
-        <h3 class="mt-2 text-2xl font-semibold text-[#102f38]">
+        <p class="mt-7 text-xs font-semibold uppercase tracking-[0.15em] text-[#2d7d73]">
+          CLARISENDA
+        </p>
+
+        <h3 class="mt-2 text-2xl font-semibold tracking-tight text-[#102f38]">
           Audit Ready
         </h3>
 
-        <p class="mt-4 flex-1 leading-7 text-slate-600">
+        <p class="mt-5 flex-1 leading-7 text-slate-600">
           {t.auditText}
         </p>
 
-        <p class="mt-7 text-sm font-semibold text-[#123b45]">
-          {t.auditFor}
-        </p>
+        <div class="mt-7 border-t border-[#2d7d73]/15 pt-5">
+          <p class="text-sm font-semibold leading-6 text-[#123b45]">
+            {t.auditFor}
+          </p>
+        </div>
 
       </article>
 
 
       <!-- PROJECT CONTROL -->
-      <article class="flex flex-col rounded-3xl border border-slate-200 p-7">
+      <article
+        class="group relative flex flex-col overflow-hidden rounded-3xl border border-[#123b45] bg-[#102f38] p-7 text-white transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgba(18,59,69,0.18)]"
+      >
 
-        <p class="text-sm font-semibold text-[#2d7d73]">
+        <div class="absolute inset-x-0 top-0 h-1 bg-[#f20a78]"></div>
+
+        <div class="flex items-start justify-between">
+
+          <div
+            class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-[#8ed0c7]"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-6 w-6"
+              aria-hidden="true"
+            >
+              <path d="M4 19V9M10 19V5M16 19v-7M22 19V3" />
+              <path d="M3 19h20" />
+              <circle cx="4" cy="9" r="1.4" fill="currentColor" stroke="none" />
+              <circle cx="10" cy="5" r="1.4" fill="currentColor" stroke="none" />
+              <circle cx="16" cy="12" r="1.4" fill="currentColor" stroke="none" />
+              <circle cx="22" cy="3" r="1.4" fill="currentColor" stroke="none" />
+            </svg>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-[#f20a78]"></span>
+
+            <span class="text-sm font-semibold tracking-[0.12em] text-white/45">
+              03
+            </span>
+          </div>
+
+        </div>
+
+        <p class="mt-7 text-xs font-semibold uppercase tracking-[0.15em] text-[#8ed0c7]">
           CLARISENDA
         </p>
 
-        <h3 class="mt-2 text-2xl font-semibold text-[#102f38]">
+        <h3 class="mt-2 text-2xl font-semibold tracking-tight text-white">
           Project Control
         </h3>
 
-        <p class="mt-4 flex-1 leading-7 text-slate-600">
+        <p class="mt-5 flex-1 leading-7 text-white/70">
           {t.controlText}
         </p>
 
-        <p class="mt-7 text-sm font-semibold text-[#123b45]">
-          {t.controlFor}
-        </p>
+        <div class="mt-7 border-t border-white/10 pt-5">
+          <p class="text-sm font-semibold leading-6 text-white">
+            {t.controlFor}
+          </p>
+        </div>
 
       </article>
 
     </div>
+
   </div>
 </section>
 
 
 <!-- CONFIANZA -->
-<section id="seguridad" class="bg-[#102f38] text-white">
-  <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+<section
+  id="seguridad"
+  class="relative overflow-hidden bg-[#102f38] text-white"
+>
 
-    <div class="grid gap-14 lg:grid-cols-2">
+  <!-- Fondo tecnológico sutil -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -left-40 top-0 h-[28rem] w-[28rem] rounded-full bg-[#2d7d73]/20 blur-3xl"
+  ></div>
 
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-40 bottom-0 h-[30rem] w-[30rem] rounded-full bg-[#6aa69f]/10 blur-3xl"
+  ></div>
+
+
+  <div class="relative mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8 lg:py-24">
+
+    <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-14">
+
+
+      <!-- MENSAJE PRINCIPAL -->
       <div>
 
-        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#79c0b7]">
-          {t.trustLabel}
-        </p>
+        <div class="flex items-center gap-3">
 
-        <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <span class="h-2.5 w-2.5 rounded-full bg-[#f20a78]"></span>
+
+          <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#8ed0c7]">
+            {t.trustLabel}
+          </p>
+
+        </div>
+
+
+        <h2 class="mt-5 max-w-xl text-3xl font-semibold tracking-[-0.025em] text-white sm:text-4xl lg:text-[2.7rem] lg:leading-[1.08]">
           {t.trustTitle}
         </h2>
+
 
         <p class="mt-6 max-w-xl text-lg leading-8 text-white/70">
           {t.trustIntro}
         </p>
 
+
+        <!-- Esquema visual -->
+        <div
+          aria-hidden="true"
+          class="mt-10 hidden max-w-md items-center lg:flex"
+        >
+
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/5">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              class="h-5 w-5 text-[#8ed0c7]"
+            >
+              <path d="M6 3h8l4 4v14H6z" />
+              <path d="M14 3v5h5" />
+            </svg>
+          </div>
+
+
+          <div class="mx-2 h-px flex-1 bg-gradient-to-r from-[#6aa69f]/20 to-[#6aa69f]/70"></div>
+
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-lg">
+        <img
+        src="/logo-mark-clarisenda.png"
+        alt=""
+        width="56"
+        height="56"
+        class="h-12 w-12 object-contain"
+        aria-hidden="true"
+      />
       </div>
 
 
+          <div class="mx-2 h-px flex-1 bg-gradient-to-r from-[#6aa69f]/70 to-[#6aa69f]/20"></div>
+
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 bg-white/5">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-5 w-5 text-[#8ed0c7]"
+            >
+              <circle cx="12" cy="12" r="8" />
+              <path d="M8.5 12l2.2 2.2 4.8-5" />
+            </svg>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PILARES DE CONFIANZA -->
       <div class="grid gap-4 sm:grid-cols-2">
 
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
 
-          <p class="font-semibold">
+        <!-- TRAZABILIDAD -->
+        <article
+          class="group rounded-3xl border border-white/10 bg-white/[0.055] p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[#79c0b7]/35 hover:bg-white/[0.08]"
+        >
+
+          <div class="flex items-start justify-between">
+
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2d7d73]/35 text-[#8ed0c7]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-6 w-6"
+                aria-hidden="true"
+              >
+                <circle cx="5" cy="5" r="2" />
+                <circle cx="19" cy="5" r="2" />
+                <circle cx="12" cy="19" r="2" />
+                <path d="M6.8 6l4 10.8M17.2 6l-4 10.8M7 5h10" />
+              </svg>
+            </div>
+
+            <span class="h-2 w-2 rounded-full bg-[#f20a78]"></span>
+
+          </div>
+
+          <h3 class="mt-6 text-lg font-semibold text-white">
             {t.traceability}
-          </p>
+          </h3>
 
-          <p class="mt-2 text-sm leading-6 text-white/60">
+          <p class="mt-3 leading-7 text-white/70">
             {t.traceabilityText}
           </p>
 
-        </div>
+        </article>
 
 
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
 
-          <p class="font-semibold">
+        <!-- REVISIÓN HUMANA -->
+        <article
+          class="group rounded-3xl border border-white/10 bg-white/[0.055] p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[#79c0b7]/35 hover:bg-white/[0.08]"
+        >
+
+          <div class="flex items-start justify-between">
+
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2d7d73]/35 text-[#8ed0c7]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-6 w-6"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="8" r="3.5" />
+                <path d="M5 20c.8-4.2 3.1-6.3 7-6.3s6.2 2.1 7 6.3" />
+                <path d="M17.2 11.7l1.4 1.4 2.4-2.7" />
+              </svg>
+            </div>
+
+            <span class="h-2 w-2 rounded-full bg-[#f20a78]"></span>
+
+          </div>
+
+          <h3 class="mt-6 text-lg font-semibold text-white">
             {t.humanReview}
-          </p>
+          </h3>
 
-          <p class="mt-2 text-sm leading-6 text-white/60">
+          <p class="mt-3 leading-7 text-white/70">
             {t.humanReviewText}
           </p>
 
-        </div>
+        </article>
 
 
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
 
-          <p class="font-semibold">
+        <!-- ARQUITECTURA PORTABLE -->
+        <article
+          class="group rounded-3xl border border-white/10 bg-white/[0.055] p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[#79c0b7]/35 hover:bg-white/[0.08]"
+        >
+
+          <div class="flex items-start justify-between">
+
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2d7d73]/35 text-[#8ed0c7]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-6 w-6"
+                aria-hidden="true"
+              >
+                <rect x="3" y="5" width="7" height="6" rx="1.5" />
+                <rect x="14" y="13" width="7" height="6" rx="1.5" />
+                <path d="M10 8h4a3 3 0 0 1 3 3v2" />
+                <path d="M14 16h-4a3 3 0 0 1-3-3v-2" />
+              </svg>
+            </div>
+
+            <span class="h-2 w-2 rounded-full bg-[#f20a78]"></span>
+
+          </div>
+
+          <h3 class="mt-6 text-lg font-semibold text-white">
             {t.portable}
-          </p>
+          </h3>
 
-          <p class="mt-2 text-sm leading-6 text-white/60">
+          <p class="mt-3 leading-7 text-white/70">
             {t.portableText}
           </p>
 
-        </div>
+        </article>
 
 
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
 
-          <p class="font-semibold">
+        <!-- SEGURIDAD -->
+        <article
+          class="group relative overflow-hidden rounded-3xl border border-[#79c0b7]/25 bg-[#2d7d73]/20 p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[#79c0b7]/45 hover:bg-[#2d7d73]/25"
+        >
+
+          <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#2d7d73] via-[#79c0b7] to-[#f20a78]"></div>
+
+
+          <div class="flex items-start justify-between">
+
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2d7d73] text-white"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-6 w-6"
+                aria-hidden="true"
+              >
+                <path d="M12 3l7 3v5c0 4.6-2.8 8-7 10-4.2-2-7-5.4-7-10V6z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+            </div>
+
+            <span class="h-2 w-2 rounded-full bg-[#f20a78]"></span>
+
+          </div>
+
+          <h3 class="mt-6 text-lg font-semibold text-white">
             {t.securityDesign}
-          </p>
+          </h3>
 
-          <p class="mt-2 text-sm leading-6 text-white/60">
+          <p class="mt-3 leading-7 text-white/65">
             {t.securityDesignText}
           </p>
 
-        </div>
+        </article>
+
 
       </div>
 
     </div>
+
   </div>
 </section>
 
 
 <!-- CTA FINAL -->
-<section class="bg-[#eaf4f1]">
-  <div class="mx-auto max-w-5xl px-6 py-24 text-center">
+<section class="relative overflow-hidden bg-[#eaf4f1]">
 
-    <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#2d7d73]">
-      {t.finalClaim}
-    </p>
+  <!-- Fondo decorativo -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-[#2d7d73]/10 blur-3xl"
+  ></div>
 
-    <h2 class="mx-auto mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-[#102f38] sm:text-5xl">
-      {t.finalTitle}
-    </h2>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-[#123b45]/10 blur-3xl"
+  ></div>
 
-    <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-      {t.finalIntro}
-    </p>
 
-    <a
-      href="#project-check"
-      class="mt-9 inline-flex rounded-xl bg-[#123b45] px-7 py-4 font-semibold text-white transition hover:bg-[#0d3038]"
+  <div class="relative mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8 lg:py-24">
+
+    <div
+      class="relative overflow-hidden rounded-[2rem] bg-[#102f38] px-7 py-12 text-white shadow-[0_30px_80px_rgba(18,59,69,0.16)] sm:px-10 lg:px-14 lg:py-14"
     >
-      {t.finalButton}
-    </a>
+
+      <!-- Destello superior -->
+      <div
+        aria-hidden="true"
+        class="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[#2d7d73]/35 blur-3xl"
+      ></div>
+
+
+      <div class="relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+
+
+        <!-- MENSAJE -->
+        <div class="max-w-3xl">
+
+          <div class="flex items-center gap-3">
+
+            <span class="h-2.5 w-2.5 rounded-full bg-[#f20a78]"></span>
+
+            <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#8ed0c7]">
+              {t.finalClaim}
+            </p>
+
+          </div>
+
+
+          <h2 class="mt-5 text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.8rem] lg:leading-[1.08]">
+            {t.finalTitle}
+          </h2>
+
+
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-white/70">
+            {t.finalIntro}
+          </p>
+
+
+          <!-- MICROCONFIANZA -->
+          <div class="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/55">
+
+            <span class="flex items-center gap-2">
+              <span class="text-[#8ed0c7]">✓</span>
+              {t.noCommitment}
+            </span>
+
+            <span class="flex items-center gap-2">
+              <span class="text-[#8ed0c7]">✓</span>
+              {t.instantResult}
+            </span>
+
+            <span class="flex items-center gap-2">
+              <span class="text-[#8ed0c7]">✓</span>
+              {t.noRegistration}
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- CTA -->
+        <div class="flex lg:justify-end">
+
+          <a
+            href="#project-check"
+            class="group inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-semibold text-[#123b45] shadow-[0_12px_30px_rgba(0,0,0,0.12)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#eaf4f1] sm:w-auto"
+          >
+            {t.finalButton}
+
+            <span
+              aria-hidden="true"
+              class="text-lg transition-transform duration-200 group-hover:translate-x-1"
+            >
+              →
+            </span>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
 </section>
 
 
+
 <!-- FOOTER -->
 <footer class="border-t border-slate-200 bg-white">
-  <div class="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8">
 
-    <div>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
 
-      <span class="font-semibold tracking-[0.12em] text-[#123b45]">
-        CLARISENDA
-      </span>
 
-      <span class="ml-3">
-        {t.footerClaim}
-      </span>
+    <!-- FOOTER PRINCIPAL -->
+    <div class="grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+
+
+      <!-- MARCA -->
+      <div>
+
+        <a
+          href={canonicalPath}
+          class="inline-flex items-center"
+          aria-label="CLARISENDA"
+        >
+          <img
+            src="/logo-clarisenda.png"
+            alt="CLARISENDA"
+            width="360"
+            height="120"
+            class="h-11 w-auto object-contain"
+          />
+        </a>
+
+
+        <p class="mt-4 max-w-md text-sm leading-6 text-slate-500">
+          {t.footerClaim}
+        </p>
+
+      </div>
+
+
+      <!-- CONTACTO -->
+      <div class="sm:text-right">
+
+        <a
+          href="mailto:info@clarisenda.com"
+          class="font-semibold text-[#123b45] transition hover:text-[#2d7d73]"
+        >
+          info@clarisenda.com
+        </a>
+
+        <p class="mt-2 text-sm text-slate-500">
+          {t.location}
+        </p>
+
+
+        <!-- IDIOMAS -->
+        <div class="mt-5 flex gap-2 sm:justify-end">
+
+          <a
+            href="/es/"
+            class:list={[
+              'rounded-lg px-3 py-2 text-xs font-semibold transition',
+              isSpanish
+                ? 'bg-[#123b45] text-white'
+                : 'border border-slate-200 text-slate-500 hover:border-[#2d7d73] hover:text-[#2d7d73]'
+            ]}
+          >
+            ES
+          </a>
+
+          <a
+            href="/en/"
+            class:list={[
+              'rounded-lg px-3 py-2 text-xs font-semibold transition',
+              !isSpanish
+                ? 'bg-[#123b45] text-white'
+                : 'border border-slate-200 text-slate-500 hover:border-[#2d7d73] hover:text-[#2d7d73]'
+            ]}
+          >
+            EN
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
 
 
-    <div class="flex flex-wrap gap-5">
+    <!-- PIE INFERIOR -->
+    <div
+      class="flex flex-col gap-3 border-t border-slate-200 py-6 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between"
+    >
 
-      <a
-        href="mailto:info@clarisenda.com"
-        class="hover:text-[#123b45]"
-      >
-        info@clarisenda.com
-      </a>
+      <p>
+        © {currentYear} CLARISENDA
+      </p>
 
-      <span>
-        {t.location}
-      </span>
+      <div class="flex items-center gap-3">
+
+        <span>
+          {t.footerClaim}
+        </span>
+
+        <span
+          aria-hidden="true"
+          class="h-1.5 w-1.5 rounded-full bg-[#f20a78]"
+        ></span>
+
+      </div>
 
     </div>
 
   </div>
+
 </footer>
 
 
